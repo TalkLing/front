@@ -1,3 +1,3 @@
 export const Registration = (params) => {
-  return <div>Hello</div>;
+  return <div>Registration</div>;
 };
