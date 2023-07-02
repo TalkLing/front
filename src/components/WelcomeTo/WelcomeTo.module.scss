@@ -1,0 +1,12 @@
+@import "../../variables.scss";
+
+.container {
+  background-color: rgba(23, 23, 23, 0.2);
+}
+.title {
+  margin-top: 82px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  color: $primary;
+}
