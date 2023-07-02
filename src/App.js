@@ -4,8 +4,11 @@ import { Login } from "./pages/Login";
 import { Chat } from "./pages/Chat";
 import { Navbar } from "./components/Navbar";
 import "./App.css";
+import { WelcomeTo } from "./components/WelcomeTo/WelcomeTo";
 
 function App() {
+  const user = false;
+
   return (
     <div className="App">
       <Routes>
