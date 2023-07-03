@@ -2,9 +2,9 @@ import { Routes, Route } from "react-router-dom";
 import { Registration } from "./pages/Registration";
 import { Login } from "./pages/Login";
 import { Chat } from "./pages/Chat";
-import { Navbar } from "./components/Navbar";
+import { WelcomeTo } from "./pages/WelcomeTo/WelcomeTo";
+import { Connect } from "./pages/Connect/Connect";
 import "./App.css";
-import { WelcomeTo } from "./components/WelcomeTo/WelcomeTo";
 
 function App() {
   const user = false;
@@ -12,7 +12,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Registration />} />
+        <Route path="/" element={<WelcomeTo />} />
+        <Route exact path="/connect" element={<Connect />} />
+        <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route exact path="/chat" element={<Chat />} />
       </Routes>
