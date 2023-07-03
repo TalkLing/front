@@ -10,17 +10,28 @@
   background-size: cover;
   border-color: aqua;
 }
-.title {
-  padding-bottom: 109px;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.17;
-  color: $primary;
+.auth {
+  padding-bottom: 110px;
 }
-
 .logo {
   padding-top: 132px;
-  padding-bottom: 83px;
+  padding-bottom: 40px;
+}
+.link {
+  padding-bottom: 13px;
+}
+.text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.14px;
+  color: $mainBlack;
+}
+.textLine {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 13px;
 }
 .button {
   margin-left: auto;
