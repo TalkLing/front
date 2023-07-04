@@ -31,79 +31,95 @@ export const RegistrationForm = () => {
 
   return (
     <form className={s.form} onSubmit={formik.handleSubmit}>
-      <input
-        className={s.inputUser}
-        id="name"
-        name="name"
-        type="text"
-        maxLength={100}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.name}
-        placeholder="Username"
-        style={{ color: formik.touched.name && formik.errors.name && "red" }}
-      />
-      {/*formik.touched.name && formik.errors.name ? (
+      <div className={s.inputField}>
+        <span className={`${s.icon} ${s.username}`}></span>
+        <input
+          className={s.input}
+          id="name"
+          name="name"
+          type="text"
+          maxLength={100}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.name}
+          placeholder="Username"
+          style={{ color: formik.touched.name && formik.errors.name && "red" }}
+        />
+        {/*formik.touched.name && formik.errors.name ? (
         <span>{formik.errors.name}</span>
       ) : null*/}
+      </div>
 
-      <input
-        className={s.inputEmail}
-        id="email"
-        name="email"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email.trim()}
-        placeholder="Email"
-        style={{
-          color: formik.touched.email && formik.errors.email && "red",
-        }}
-      />
-      {/*formik.touched.email && formik.errors.email ? (
+      <div className={s.inputField}>
+        <span className={`${s.icon} ${s.email}`}></span>
+        <input
+          className={s.input}
+          id="email"
+          name="email"
+          type="text"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.email.trim()}
+          placeholder="Email"
+          style={{
+            color: formik.touched.email && formik.errors.email && "red",
+          }}
+        />
+        {/*formik.touched.email && formik.errors.email ? (
         <span>{formik.errors.email}</span>
       ) : null*/}
+      </div>
 
-      <input
-        className={s.input}
-        id="password"
-        name="password"
-        type="password"
-        minLength={5}
-        maxLength={30}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password.trim()}
-        placeholder="Password"
-        style={{
-          color: formik.touched.password && formik.errors.password && "red",
-        }}
-      />
-      {/*formik.touched.password && formik.errors.password ? (
+      <div className={s.inputField}>
+        <span className={`${s.icon} ${s.password}`}></span>
+        <input
+          className={s.input}
+          id="password"
+          name="password"
+          type="password"
+          minLength={5}
+          maxLength={30}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.password.trim()}
+          placeholder="Password"
+          style={{
+            color: formik.touched.password && formik.errors.password && "red",
+          }}
+        />
+        {/*formik.touched.password && formik.errors.password ? (
         <span>{formik.errors.password}</span>
       ) : null*/}
+      </div>
 
-      <input
-        className={s.input}
-        id="repassword"
-        name="repassword"
-        type="password"
-        minLength={5}
-        maxLength={30}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.repassword.trim()}
-        placeholder="Confirm"
-        style={{
-          color: formik.touched.repassword && formik.errors.repassword && "red",
-        }}
-      />
-      {/*formik.touched.repassword && formik.errors.repassword ? (
+      <div className={s.inputField}>
+        <span className={`${s.icon} ${s.password}`}></span>
+        <input
+          className={s.input}
+          id="repassword"
+          name="repassword"
+          type="password"
+          minLength={5}
+          maxLength={30}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.repassword.trim()}
+          placeholder="Confirm"
+          style={{
+            color:
+              formik.touched.repassword && formik.errors.repassword && "red",
+          }}
+        />
+        {/*formik.touched.repassword && formik.errors.repassword ? (
         <span>{formik.errors.repassword}</span>
       ) : null*/}
-
-      <input type="checkbox" id="agreement" />
-      <label htmlFor="agreement">I agree to the terms of service</label>
+      </div>
+      <div className={s.checkbox}>
+        <input type="checkbox" id="agreement" />
+        <label htmlFor="agreement" className={s.checkLabel}>
+          I agree to the terms of service
+        </label>
+      </div>
     </form>
   );
 };

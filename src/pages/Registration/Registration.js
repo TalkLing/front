@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../images/icons/Logo.svg";
 import { ReactComponent as ButtonAdd } from "../../images/icons/ButtonAdd.svg";
 import { ReactComponent as Line } from "../../images/icons/Line.svg";
+import { ReactComponent as Google } from "../../images/icons/Google.svg";
 import { Button } from "../../components/Button/Button";
 import { RegistrationForm } from "../../components/Form/RegistrationForm";
 import s from "./Registration.module.scss";
@@ -29,15 +30,12 @@ export const Registration = () => {
               border: "2px solid  #F6F244",
             }}
           >
+            <Google className={s.google} />
             Continue with Google
           </Button>
         </NavLink>
       </div>
-      <div className={s.button}>
-        <NavLink to="/registration">
-          <ButtonAdd />
-        </NavLink>
-      </div>
+      <div className={s.button}></div>
     </div>
   );
 };

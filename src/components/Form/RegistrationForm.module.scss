@@ -4,45 +4,71 @@
   display: flex;
   flex-direction: column;
 }
+
 .input {
   margin-bottom: 12px;
-  width: 312px;
-  height: 40px;
-  max-width: 100%;
-  border: none;
-  outline: none;
-  border-radius: 20px;
+  border-color: transparent;
+  background-repeat: no-repeat;
   background: $formBackground;
+  border-radius: 20px;
 
   &::placeholder {
-    //display: flex;
-    //flex-direction: column;
-    //padding-left: 15px;
     font-size: 14px;
-    line-height: 1.43;
+    font-weight: 400;
+    line-height: 20px;
     letter-spacing: 0.14px;
-
-    //background: url(../../images/icons/User.svg) no-repeat;
-  }
-}
-.inputUser {
-  @extend .input;
-
-  &::placeholder {
-    ///position: relative;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    background: url(../../images/icons/User.svg) no-repeat;
   }
 }
 
+.inputField {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  height: 40px;
+  margin-bottom: 12px;
+  width: 312px;
+  max-width: 100%;
+}
+.icon {
+  position: relative;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+
+.username {
+  background-image: url(../../images/icons/UserRounded.svg);
+}
+
+.email {
+  background-image: url(../../images/icons/Letter.svg);
+}
+.password {
+  background-image: url(../../images/icons/Lock.svg);
+}
 .inputEmail {
   @extend .input;
 
   &::placeholder {
     background: url(../../images/icons/Letter.svg) no-repeat;
   }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.checkLabel {
+  display: block;
+  margin-left: 16px;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.14px;
+  color: $mainBlack;
 }
