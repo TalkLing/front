@@ -7,11 +7,13 @@ export const Login = (params) => {
   return (
     <div className={s.container}>
       <NavLink to="/auth">
-        <a href="/auth" className={s.back}> </a>
+        <a href="/auth" className={s.back}>
+          {" "}
+        </a>
       </NavLink>
 
       <div className={s.logo}>
-        <Logo style={{ width: "72px", height: "90px" }}/>
+        <Logo style={{ width: "72px", height: "90px" }} />
       </div>
 
       <div className={s.inputs}>
@@ -36,7 +38,9 @@ export const Login = (params) => {
         </div>
       </div>
 
-      <a href="/" className={s.forgot}>Forgot Password?</a>
+      <a href="/" className={s.forgot}>
+        Forgot Password?
+      </a>
 
       <NavLink to="/login">
         <Button
@@ -50,9 +54,11 @@ export const Login = (params) => {
       </NavLink>
 
       <div className={s.dontHave}>
-        Don`t have an account? { }
+        Don`t have an account? {}
         <NavLink to="/registration">
-          <a href="/registration" className={s.sign}>Sign Up</a>
+          <a href="/registration" className={s.sign}>
+            Sign Up
+          </a>
         </NavLink>
       </div>
     </div>
