@@ -8,3 +8,5 @@ export const Login = (params) => {
     </div>
   );
 };
+{
+}

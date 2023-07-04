@@ -1,0 +1,48 @@
+@import "../../variables.scss";
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  margin-bottom: 12px;
+  width: 312px;
+  height: 40px;
+  max-width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background: $formBackground;
+
+  &::placeholder {
+    //display: flex;
+    //flex-direction: column;
+    //padding-left: 15px;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: 0.14px;
+
+    //background: url(../../images/icons/User.svg) no-repeat;
+  }
+}
+.inputUser {
+  @extend .input;
+
+  &::placeholder {
+    ///position: relative;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: url(../../images/icons/User.svg) no-repeat;
+  }
+}
+
+.inputEmail {
+  @extend .input;
+
+  &::placeholder {
+    background: url(../../images/icons/Letter.svg) no-repeat;
+  }
+}

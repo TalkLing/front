@@ -1,0 +1,53 @@
+@import "../../variables.scss";
+
+.container {
+  padding: 0px 24px 40px 31px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../../images/gradient.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-color: aqua;
+}
+.form {
+  margin-bottom: 28px;
+}
+.auth {
+  //padding-bottom: 110px;
+}
+.logo {
+  padding-top: 81px;
+  padding-bottom: 13px;
+}
+.link {
+  padding-bottom: 13px;
+}
+.text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.14px;
+  color: $mainBlack;
+}
+.textLine {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 13px;
+}
+.button {
+  margin-left: auto;
+
+  &::after {
+    display: block;
+    position: absolute;
+    margin-top: 24px;
+    left: 50%;
+    content: "";
+    width: 72px;
+    height: 2px;
+    margin-left: -30px;
+    background-color: $mainBlack;
+  }
+}
