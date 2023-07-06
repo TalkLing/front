@@ -10,32 +10,30 @@ import s from "./Registration.module.scss";
 export const Registration = () => {
   return (
     <div className={s.container}>
+      <NavLink to="/auth" className={s.back}></NavLink>
+
       <div className={s.logo}>
         <Logo style={{ width: "72px", height: "90px" }} />
       </div>
       <RegistrationForm />
       <div className={s.auth}>
-        <NavLink to="/registration" className={s.link}>
-          <Button style={{ backgroundColor: "#F6F244" }}>Create Account</Button>
-        </NavLink>
         <div className={s.textLine}>
           <Line />
           <p className={s.text}>or</p>
           <Line />
         </div>
-        <NavLink to="/login">
-          <Button
-            style={{
-              backgroundColor: "transparent",
-              border: "2px solid  #F6F244",
-            }}
-          >
-            <Google className={s.google} />
-            Continue with Google
-          </Button>
-        </NavLink>
+
+        <Button
+          className={s.auth}
+          style={{
+            backgroundColor: "transparent",
+            border: "2px solid  #F6F244",
+          }}
+        >
+          <Google className={s.google} />
+          Continue with Google
+        </Button>
       </div>
-      <div className={s.button}></div>
     </div>
   );
 };
