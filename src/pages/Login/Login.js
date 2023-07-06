@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../images/icons/Logo.svg";
+import { LoginForm } from "../../components/Form/LoginForm";
 import { Button } from "../../components/Button/Button";
 import s from "./Login.module.scss";
 
@@ -16,27 +17,7 @@ export const Login = (params) => {
         <Logo style={{ width: "72px", height: "90px" }} />
       </div>
 
-      <div className={s.inputs}>
-        <div className={s.inputField}>
-          <span className={`${s.icon} ${s.username}`}></span>
-          <input
-            className={s.input}
-            name="username"
-            placeholder="Username"
-            type="text"
-          />
-        </div>
-
-        <div className={s.inputField}>
-          <span className={`${s.icon} ${s.email}`}></span>
-          <input
-            className={s.input}
-            name="email"
-            placeholder="Email"
-            type="email"
-          />
-        </div>
-      </div>
+      <LoginForm />
 
       <a href="/" className={s.forgot}>
         Forgot Password?
