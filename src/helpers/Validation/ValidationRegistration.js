@@ -7,7 +7,7 @@ export const validationRegistrationSchema = Yup.object({
 
   password: Yup.string().min(5).max(30).required().typeError(),
 
-  repassword: Yup.string().min(5).max(30).required().typeError(),
+  confirmPassword: Yup.string().min(5).max(30).required().typeError(),
 });
 
 export const validate = (values) => {
@@ -18,7 +18,7 @@ export const validate = (values) => {
   if (!values.name) {
     errors.name = "please type your name";
   } else if (values.name.length < 2 || values.name.length > 99) {
-    errors.name = "please type a name in length from 2 to 99 characters";
+    errors.name = "please type a name from 2 to 99 characters";
   } /*else if (!reg.test(values.name[0])) {
       errors.name =
         language.resolvedLanguage === 'uk' ? lngs.start.ua : lngs.start.en;
@@ -27,7 +27,7 @@ export const validate = (values) => {
   if (!values.email) {
     errors.email = "please type your email";
   } else if (values.email.length < 6 || values.email.length > 62) {
-    errors.email = "please type an email in length from 6 to 62 characters";
+    errors.email = "please type an email from 6 to 62 characters";
   } else if (values.email.startsWith("-") || values.email.slice(-1) === "-") {
     errors.email = "please enter a valid email";
   } else if (cyrillic.test(values.email)) {
@@ -46,10 +46,10 @@ export const validate = (values) => {
     errors.password = "please enter another password";
   }
 
-  if (!values.repassword) {
-    errors.repassword = "please confirm your password";
-  } else if (values.repassword !== values.password) {
-    errors.repassword = "password mismatch";
+  if (!values.confirmPassword) {
+    errors.confirmPassword = "please confirm your password";
+  } else if (values.confirmPassword !== values.password) {
+    errors.confirmPassword = "password mismatch";
   }
   return errors;
 };

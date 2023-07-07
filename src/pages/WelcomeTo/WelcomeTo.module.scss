@@ -1,7 +1,9 @@
-@import "../../variables.scss";
+@import "../../styles/variables.scss";
 
 .container {
   padding: 84px 24px 40px 24px;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +11,16 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-color: aqua;
+
+  @media screen and (min-width: 835px) {
+    padding: 40px 40px 87px 40px;
+    display: block;
+  }
+}
+.tabletContariner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
 }
 .title {
   padding-bottom: 60px;
@@ -21,14 +33,40 @@
 
 .logo {
   padding-bottom: 176px;
+
+  @media screen and (min-width: 835px) {
+    padding-bottom: 0px;
+    margin-bottom: 65px;
+  }
+}
+.logoItem {
+  display: block;
+  margin-left: 0;
+}
+.titleTablet {
+  margin-bottom: 40px;
+  text-align: left;
+  color: $primary;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.24px;
+}
+.aboutUs {
+  text-align: left;
+  color: $maimWhite;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.16px;
 }
 .button {
-  margin-left: auto;
+  display: flex;
+  align-items: center;
 
   &::after {
     display: block;
     position: absolute;
-    margin-top: 24px;
+    margin-top: 106px;
     left: 50%;
     content: "";
     width: 72px;
@@ -36,4 +74,18 @@
     margin-left: -30px;
     background-color: $mainBlack;
   }
+}
+.form {
+  background-color: $formColor;
+  border-radius: 32px;
+}
+.links {
+  display: flex;
+  justify-content: space-around;
+}
+.linkItem {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 65px;
+  padding-right: 65px;
 }

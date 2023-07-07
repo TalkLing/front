@@ -1,7 +1,9 @@
-@import "../../variables.scss";
+@import "../../styles/variables.scss";
 
 .container {
-  padding: 0px 24px 40px 31px;
+  padding: 0px 24px 40px 24px;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,12 +36,13 @@
   padding-bottom: 13px;
 }
 .button {
-  margin-left: auto;
+  display: flex;
+  align-items: center;
 
   &::after {
     display: block;
     position: absolute;
-    margin-top: 24px;
+    margin-top: 110px;
     left: 50%;
     content: "";
     width: 72px;
@@ -47,4 +50,15 @@
     margin-left: -30px;
     background-color: $mainBlack;
   }
+}
+.dots {
+  display: flex;
+  margin-right: 195px;
+  margin-top: 7px;
+}
+.itemDot {
+  display: block;
+}
+.itemDot:not(:last-child) {
+  margin-right: 8px;
 }

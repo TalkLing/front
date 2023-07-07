@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+.dots {
+  display: flex;
+  margin-right: 195px;
+}
+.itemDot {
+  display: block;
+}
+.itemDot:not(:last-child) {
+  margin-right: 8px;
+}

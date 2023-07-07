@@ -4,7 +4,7 @@ export const Button = ({ style, children, onClickPage, currentPage }) => {
   return (
     <button
       //  onClick={() => onClickPage(Number(currentPage) + 1)}
-      type="button"
+      //type="button"
       className={s.button}
       style={style}
     >
