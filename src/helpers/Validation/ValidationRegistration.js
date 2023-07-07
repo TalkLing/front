@@ -7,7 +7,7 @@ export const validationRegistrationSchema = Yup.object({
 
   password: Yup.string().min(5).max(30).required().typeError(),
 
-  repassword: Yup.string().min(5).max(30).required().typeError(),
+  confirmPassword: Yup.string().min(5).max(30).required().typeError(),
 });
 
 export const validate = (values) => {
@@ -46,10 +46,10 @@ export const validate = (values) => {
     errors.password = "please enter another password";
   }
 
-  if (!values.repassword) {
-    errors.repassword = "please confirm your password";
-  } else if (values.repassword !== values.password) {
-    errors.repassword = "password mismatch";
+  if (!values.confirmPassword) {
+    errors.confirmPassword = "please confirm your password";
+  } else if (values.confirmPassword !== values.password) {
+    errors.confirmPassword = "password mismatch";
   }
   return errors;
 };

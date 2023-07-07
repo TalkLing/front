@@ -1,87 +1,36 @@
 import { useState } from "react";
 import { useFormik } from "formik";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { authOperations } from "../../redux/auth";
 import {
   validationRegistrationSchema,
   validate,
 } from "../../helpers/Validation/ValidationRegistration";
-import { ReactComponent as Close } from "../../images/icons/Close.svg";
 import { Button } from "../../components/Button/Button";
 import s from "./RegistrationForm.module.scss";
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
-  // const [showText, setShowText] = useState(false);
-
-  /*const signUp = () => {
-    axios
-      .post("http://talkling.us-east-1.elasticbeanstalk.com/register", {
-        firstName: "Fred",
-        lastName: "Flintstone",
-        password: "123456",
-        repassword: "123456",
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };*/
-
-  //formik.touched && formik.errors && setShowText(showText);
-
-  //const toggleText = () => setShowText(!showText);
 
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       password: "",
-      repassword: "",
+      confirmPassword: "",
     },
     validationSchema: validationRegistrationSchema,
     validate,
-    /*onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },*/
-
     onSubmit: (values, obj) => {
-      //alert(JSON.stringify(values, null, 2));
-      const { name, email, password /*, repassword */ } = values;
-      /*  axios
-        .post("http://talkling.us-east-1.elasticbeanstalk.com/register", {
-          name,
-          email,
-          password,
-          //repassword,
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-       */
-      const credentials = { name, email, password };
-      //signUp(credentials)
+      alert(JSON.stringify(values, null, 2));
+      const { name, email, password, confirmPassword } = values;
+      const credentials = { name, email, password, confirmPassword };
       dispatch(authOperations.signUp(credentials));
       obj.setSubmitting(false);
       localStorage.setItem("info", true);
       sessionStorage.setItem("auth-form", null);
       obj.resetForm();
     },
-    /* onSubmit: (values, obj) => {
-      const { name, email, password } = values;
-      const credentials = { name, email, password };
-     dispatch(authOperations.signUp(credentials));
-      obj.setSubmitting(false);
-      localStorage.setItem("info", true);
-      sessionStorage.setItem("auth-form", null);
-      obj.resetForm();
-      },*/
   });
 
   return (
@@ -110,11 +59,8 @@ export const RegistrationForm = () => {
             placeholder="Username"
           />
         </div>
-        {formik.touched.name &&
-        formik.errors.name /* && setShowText(showText) */ ? (
-          <p className={s.mistake}>
-            {formik.errors.name} <Close /*onClick={toggleText} */ />
-          </p>
+        {formik.touched.name && formik.errors.name ? (
+          <p className={s.mistake}>{formik.errors.name}</p>
         ) : null}
       </div>
       <div className={s.inputContainer}>
@@ -144,9 +90,7 @@ export const RegistrationForm = () => {
           />
         </div>
         {formik.touched.email && formik.errors.email ? (
-          <span className={s.mistake}>
-            {formik.errors.email} <Close />
-          </span>
+          <span className={s.mistake}>{formik.errors.email}</span>
         ) : null}
       </div>
       <div className={s.inputContainer}>
@@ -178,9 +122,7 @@ export const RegistrationForm = () => {
           />
         </div>
         {formik.touched.password && formik.errors.password ? (
-          <span className={s.mistake}>
-            {formik.errors.password} <Close />
-          </span>
+          <span className={s.mistake}>{formik.errors.password}</span>
         ) : null}
       </div>
       <div className={s.inputContainer}>
@@ -188,33 +130,31 @@ export const RegistrationForm = () => {
           className={s.inputField}
           style={{
             border:
-              formik.touched.repassword &&
-              formik.errors.repassword &&
+              formik.touched.password &&
+              formik.errors.password &&
               "1px solid #f85757",
             outline:
-              formik.touched.repassword &&
-              !formik.errors.repassword &&
+              formik.touched.password &&
+              !formik.errors.password &&
               "1px solid #8B8E8F",
           }}
         >
           <span className={`${s.icon} ${s.password}`}></span>
           <input
             className={s.input}
-            id="repassword"
-            name="repassword"
+            id="confirmPassword"
+            name="confirmPassword"
             type="password"
             minLength={5}
             maxLength={30}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.repassword.trim()}
+            value={formik.values.confirmPassword.trim()}
             placeholder="Confirm"
           />
         </div>{" "}
-        {formik.touched.repassword && formik.errors.repassword ? (
-          <span className={s.mistake}>
-            {formik.errors.repassword} <Close />
-          </span>
+        {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+          <span className={s.mistake}>{formik.errors.confirmPassword}</span>
         ) : null}
       </div>
 
