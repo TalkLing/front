@@ -24,6 +24,7 @@ export const Auth = () => {
         </div>
         <NavLink to="/login">
           <Button
+            className={s.btn}
             style={{
               backgroundColor: "transparent",
               border: "2px solid  #F6F244",
