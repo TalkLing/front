@@ -60,10 +60,10 @@ function App() {
     <div className="App">
       <PageFormatContext.Provider value={pageFormat}>
         <Routes>
+          <Route path="/registration" element={<Registration />} />
           <Route exact path="/" element={<WelcomeTo />} />
           <Route path="/connect" element={<Connect />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/chat" element={<Chat />} />
         </Routes>

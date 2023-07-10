@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { authOperations } from "../../redux/auth";
@@ -7,10 +8,14 @@ import {
   validate,
 } from "../../helpers/Validation/ValidationRegistration";
 import { Button } from "../../components/Button/Button";
+import { PageFormatContext, format } from "../../context/PageFormatContext";
 import s from "./RegistrationForm.module.scss";
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
+  const { desktop } = format;
+  const pageFormat = useContext(PageFormatContext);
+  const isDesktop = pageFormat === desktop;
 
   const formik = useFormik({
     initialValues: {
@@ -48,6 +53,7 @@ export const RegistrationForm = () => {
           <span className={`${s.icon} ${s.username}`}></span>
 
           <input
+            style={{ backgroundColor: "white" }}
             className={s.input}
             id="name"
             name="name"
@@ -70,11 +76,11 @@ export const RegistrationForm = () => {
             border:
               formik.touched.email &&
               formik.errors.email &&
-              "1px solid #f85757",
+              "1.5px solid #f85757",
             outline:
               formik.touched.email &&
               !formik.errors.email &&
-              "1px solid #8B8E8F",
+              "1.5px solid #8B8E8F",
           }}
         >
           <span className={`${s.icon} ${s.email}`}></span>
@@ -100,11 +106,11 @@ export const RegistrationForm = () => {
             border:
               formik.touched.password &&
               formik.errors.password &&
-              "1px solid #f85757",
+              "1.5px solid #f85757",
             outline:
               formik.touched.password &&
               !formik.errors.password &&
-              "1px solid #8B8E8F",
+              "1.5px solid #8B8E8F",
           }}
         >
           <span className={`${s.icon} ${s.password}`}></span>
@@ -130,13 +136,13 @@ export const RegistrationForm = () => {
           className={s.inputField}
           style={{
             border:
-              formik.touched.password &&
-              formik.errors.password &&
-              "1px solid #f85757",
+              formik.touched.confirmPassword &&
+              formik.errors.confirmPassword &&
+              "1.5px solid #f85757",
             outline:
-              formik.touched.password &&
-              !formik.errors.password &&
-              "1px solid #8B8E8F",
+              formik.touched.confirmPassword &&
+              !formik.errors.confirmPassword &&
+              "1.5px solid #8B8E8F",
           }}
         >
           <span className={`${s.icon} ${s.password}`}></span>
@@ -170,17 +176,19 @@ export const RegistrationForm = () => {
           I agree to the terms of service
         </label>
       </div>
-      {/*<button type="submit">Create Account</button>*/}
 
-      {
-        <Button
-          type="submit"
-          // disabled={!formik.isValid}
-          style={{ backgroundColor: "#F6F244" }}
-        >
-          Create Account
-        </Button>
-      }
+      <button
+        className={s.btn}
+        type="submit"
+        // disabled={!formik.isValid}
+        style={{
+          width: isDesktop && "414px",
+          fontSize: isDesktop && "20px",
+          height: isDesktop && "56px",
+        }}
+      >
+        Create Account
+      </button>
     </form>
   );
 };

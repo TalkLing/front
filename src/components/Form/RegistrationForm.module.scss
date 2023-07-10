@@ -4,23 +4,44 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+
+  @media screen and (min-width: 835px) {
+    align-items: center;
+  }
 }
 .inputContainer {
   margin-bottom: 12px;
+
+  @media screen and (min-width: 835px) {
+    margin-bottom: 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 20px;
+  }
 }
 .input {
-  padding-left: -10px;
   border: none;
+  outline: none;
   background-repeat: no-repeat;
-  background: $formBackground;
-  border-radius: 20px;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.14px;
+  color: $mainBlack;
 
   &::placeholder {
     padding-left: 10px;
     font-size: 14px;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 1.43;
     letter-spacing: 0.14px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+    line-height: 1.25;
   }
 }
 
@@ -31,9 +52,13 @@
   background-color: #fff;
   border-radius: 20px;
   height: 40px;
-
   width: 312px;
-  // max-width: 100%;
+
+  @media screen and (min-width: 1440px) {
+    align-items: stretch;
+    width: 414px;
+    height: 56px;
+  }
 }
 .icon {
   position: relative;
@@ -72,11 +97,20 @@
   line-height: 20px;
   letter-spacing: 1.43;
   color: $mistakeColor;
+
+  @media screen and (min-width: 835px) {
+    justify-content: center;
+  }
 }
 .checkbox {
   display: flex;
   align-items: center;
   margin-bottom: 28px;
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 40px;
+    align-self: flex-start;
+  }
 }
 .customChecbox {
   position: absolute;
@@ -93,15 +127,8 @@
   display: inline-block;
   width: 24px;
   height: 24px;
-  //flex-shrink: 0;
-  //flex-grow: 0;
   background-image: url(../../images/icons/CheckboxBorder.svg);
-  //border: 2px solid $mainBlack;
-  ///border-radius: 0.25em;
   margin-right: 14px;
-  //background-repeat: no-repeat;
-  //background-position: center center;
-  //background-size: 50% 50%;
 }
 .customChecbox:checked + label::before {
   width: 24px;
@@ -110,9 +137,35 @@
 }
 .checkLabel {
   display: block;
-  // margin-left: 16px;
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: 0.14px;
   color: $mainBlack;
+
+  @media screen and (min-width: 1440px) {
+    color: $grey;
+  }
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 312px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: $primary;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.16px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $secondary;
+  }
 }

@@ -1,27 +1,27 @@
 @font-face {
-  font-family: 'Segoe UI';
-  src: url("../fonts/SegoeUI.ttf") format('truetype');
+  font-family: "Segoe UI";
+  src: url("../fonts/SegoeUI.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Segoe UI';
-  src: url("../fonts/SegoeUI-SemiBold.ttf") format('truetype');
+  font-family: "Segoe UI";
+  src: url("../fonts/SegoeUI-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Segoe UI';
-  src: url("../fonts/SegoeUI-Light.ttf") format('truetype');
+  font-family: "Segoe UI";
+  src: url("../fonts/SegoeUI-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Segoe UI';
-  src: url("../fonts/SegoeUI-Bold.ttf") format('truetype');
+  font-family: "Segoe UI";
+  src: url("../fonts/SegoeUI-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
@@ -107,14 +107,16 @@ a {
   line-height: 1.25;
   letter-spacing: 0.16px;
   border-bottom: 2px solid #1c274c;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.2px;
+  }
 }
-/*.active::after {
-  display: block;
-  content: "";
-  height: 2px;
-  width: 100%;
-  background-color: #1c274c;
-}*/
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
