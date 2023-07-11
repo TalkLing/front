@@ -11,6 +11,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-color: aqua;
+
+  // @media screen and (min-width: 1440px) {
+  //   padding: 100px 40px 87px 40px;
+  // }
 }
 
 .back {
@@ -26,31 +30,6 @@
 
 .logo {
   padding-top: 81x;
-}
-
-.forgot {
-  margin-top: 12px;
-  padding-bottom: 41px;
-  color: $mainBlack;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  letter-spacing: 0.14px;
-}
-
-.button {
-  margin-top: 40px;
-  width: 100%;
-  height: 40px;
-  border-radius: 20px;
-  border: 2px solid $primary;
-  color: $mainBlack;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 20px;
-  letter-spacing: 0.16px;
-  background-color: transparent;
 }
 
 .dontHave {
@@ -71,11 +50,11 @@
     display: block;
     position: absolute;
     margin-top: 180px;
+    margin-left: -30px;
     left: 50%;
     content: "";
     width: 72px;
     height: 2px;
-    margin-left: -30px;
     background-color: $mainBlack;
   }
 }
