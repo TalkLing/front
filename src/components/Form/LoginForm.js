@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { authOperations } from "../../redux/auth";
 import {
   validationLoginSchema,
@@ -37,85 +38,94 @@ export const LoginForm = () => {
   });
 
   return (
-      <form className={s.form}>
-        <div className={s.inputContainer}>
-          <div
-            className={s.inputField}
-            style={{
-              border:
-                formik.touched.email &&
-                formik.errors.email &&
-                "1.5px solid #f85757",
-              outline:
-                formik.touched.email &&
-                !formik.errors.email &&
-                "1.5px solid #8B8E8F",
-            }}
-          >
-            <span className={`${s.icon} ${s.email}`}></span>
-            <input
-              className={s.input}
-              id="email"
-              name="email"
-              type="text"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email.trim()}
-              placeholder="Email"
-            />
-          </div>
-          {formik.touched.email && formik.errors.email ? (
-            <span className={s.mistake}>{formik.errors.email}</span>
-          ) : null}
-        </div>
-
-        <div className={s.inputContainer}>
-          <div
-            className={s.inputField}
-            style={{
-              border:
-                formik.touched.password &&
-                formik.errors.password &&
-                "1.5px solid #f85757",
-              outline:
-                formik.touched.password &&
-                !formik.errors.password &&
-                "1.5px solid #8B8E8F",
-            }}
-          >
-            <span className={`${s.icon} ${s.password}`}></span>
-            <input
-              style={{ backgroundColor: "white" }}
-              className={s.input}
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Password"
-              minLength={5}
-              maxLength={30}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password.trim()}
-            />
-          </div>
-          {formik.touched.password && formik.errors.password ? (
-          <span className={s.mistake}>{formik.errors.password}</span>
-        ) : null}
-        </div>
-
-        <a href="/" className={s.forgot}>Forgot Password?</a>
-
-        <button
-          className={s.btn}
-          type="submit"
+    <form className={s.form}>
+      <div className={s.inputContainer}>
+        <div
+          className={s.inputField}
           style={{
-            width: isDesktop && "414px",
-            fontSize: isDesktop && "20px",
-            height: isDesktop && "56px",
+            border:
+              formik.touched.email &&
+              formik.errors.email &&
+              "1.5px solid #f85757",
+            outline:
+              formik.touched.email &&
+              !formik.errors.email &&
+              "1.5px solid #8B8E8F",
           }}
         >
-          Log In
-        </button>
+          <span className={`${s.icon} ${s.email}`}></span>
+          <input
+            className={s.input}
+            id="email"
+            name="email"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email.trim()}
+            placeholder="Email"
+          />
+        </div>
+        {formik.touched.email && formik.errors.email ? (
+          <span className={s.mistake}>{formik.errors.email}</span>
+        ) : null}
+      </div>
+
+      <div className={s.inputContainer}>
+        <div
+          className={s.inputField}
+          style={{
+            border:
+              formik.touched.password &&
+              formik.errors.password &&
+              "1.5px solid #f85757",
+            outline:
+              formik.touched.password &&
+              !formik.errors.password &&
+              "1.5px solid #8B8E8F",
+          }}
+        >
+          <span className={`${s.icon} ${s.password}`}></span>
+          <input
+            style={{ backgroundColor: "white" }}
+            className={s.input}
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            minLength={5}
+            maxLength={30}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password.trim()}
+          />
+        </div>
+        {formik.touched.password && formik.errors.password ? (
+        <span className={s.mistake}>{formik.errors.password}</span>
+      ) : null}
+      </div>
+
+      <a href="/" className={s.forgot}>Forgot Password?</a>
+
+      <button
+        className={s.btn}
+        type="submit"
+        style={{
+          width: isDesktop && "414px",
+          fontSize: isDesktop && "20px",
+          height: isDesktop && "56px",
+        }}
+      >
+        Log In
+      </button>
+
+      <div className={s.dontHave}>
+          Don`t have an account? {}
+          <NavLink to="/registration">
+            <a href="/registration" className={s.sign}>
+              Sign Up
+            </a>
+          </NavLink>
+        </div>
     </form>
   )
 }
