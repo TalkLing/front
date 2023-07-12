@@ -7,19 +7,19 @@ import {
   validationRegistrationSchema,
   validate,
 } from "../../helpers/Validation/ValidationRegistration";
-import { Button } from "../../components/Button/Button";
 import { PageFormatContext, format } from "../../context/PageFormatContext";
 import s from "./RegistrationForm.module.scss";
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const { desktop } = format;
+  const { desktop, tablet } = format;
   const pageFormat = useContext(PageFormatContext);
   const isDesktop = pageFormat === desktop;
+  const isTablet = pageFormat === tablet;
 
   const formik = useFormik({
     initialValues: {
-      name: "",
+      username: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -28,8 +28,8 @@ export const RegistrationForm = () => {
     validate,
     onSubmit: (values, obj) => {
       alert(JSON.stringify(values, null, 2));
-      const { name, email, password, confirmPassword } = values;
-      const credentials = { name, email, password, confirmPassword };
+      const { username, email, password, confirmPassword } = values;
+      const credentials = { username, email, password, confirmPassword };
       dispatch(authOperations.signUp(credentials));
       obj.setSubmitting(false);
       localStorage.setItem("info", true);
@@ -45,9 +45,13 @@ export const RegistrationForm = () => {
           className={s.inputField}
           style={{
             border:
-              formik.touched.name && formik.errors.name && "1px solid #f85757",
+              formik.touched.username &&
+              formik.errors.username &&
+              "1px solid #f85757",
             outline:
-              formik.touched.name && !formik.errors.name && "1px solid #8B8E8F",
+              formik.touched.username &&
+              !formik.errors.username &&
+              "1px solid #8B8E8F",
           }}
         >
           <span className={`${s.icon} ${s.username}`}></span>
@@ -55,18 +59,19 @@ export const RegistrationForm = () => {
           <input
             style={{ backgroundColor: "white" }}
             className={s.input}
-            id="name"
-            name="name"
+            id="username"
+            name="username"
             type="text"
-            maxLength={100}
+            minLength={2}
+            maxLength={50}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.name}
+            value={formik.values.username}
             placeholder="Username"
           />
         </div>
-        {formik.touched.name && formik.errors.name ? (
-          <p className={s.mistake}>{formik.errors.name}</p>
+        {formik.touched.username && formik.errors.username ? (
+          <p className={s.mistake}>{formik.errors.username}</p>
         ) : null}
       </div>
       <div className={s.inputContainer}>
@@ -119,8 +124,8 @@ export const RegistrationForm = () => {
             id="password"
             name="password"
             type="password"
-            minLength={5}
-            maxLength={30}
+            minLength={8}
+            maxLength={40}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password.trim()}
@@ -151,7 +156,7 @@ export const RegistrationForm = () => {
             id="confirmPassword"
             name="confirmPassword"
             type="password"
-            minLength={5}
+            minLength={8}
             maxLength={30}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -170,7 +175,7 @@ export const RegistrationForm = () => {
           id="agreement"
           className={s.customChecbox}
           name="agreement"
-          value="yes"
+          value="no"
         />
         <label htmlFor="agreement" className={s.checkLabel}>
           I agree to the terms of service
@@ -180,7 +185,7 @@ export const RegistrationForm = () => {
       <button
         className={s.btn}
         type="submit"
-        // disabled={!formik.isValid}
+        disabled={!formik.isValid}
         style={{
           width: isDesktop && "414px",
           fontSize: isDesktop && "20px",

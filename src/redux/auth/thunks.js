@@ -26,7 +26,7 @@ export const signUp = createAsyncThunk(
         "http://talkling.us-east-1.elasticbeanstalk.com/register",
         credentials
       );
-      token.set(token);
+      // token.set(token);
       alert("Super! Check your mail and confirm registration.");
       return res.data;
     } catch (error) {
