@@ -5,6 +5,7 @@ import { DotsButton } from "../../components/Dots/Dots";
 import { PageFormatContext, format } from "../../context/PageFormatContext";
 import { ReactComponent as Logo } from "../../images/icons/Logo.svg";
 import { ReactComponent as LogoDesktop } from "../../images/icons/LogoDesktop.svg";
+import { ReactComponent as LogoTablet } from "../../images/icons/LogoTabletWelcomePage.svg";
 import s from "./WelcomeTo.module.scss";
 
 export const WelcomeTo = () => {
@@ -49,10 +50,21 @@ export const WelcomeTo = () => {
         </>
       )}
 
-      {(isDesktop || isTablet) && (
+      {isTablet && (
+        <>
+          <h1 className={s.titleTablet}>Welcome to</h1>
+          <div className={s.logo}>
+            <span className={s.arrow}></span>
+            <LogoTablet />
+          </div>
+        </>
+      )}
+
+      {isDesktop && (
         <>
           <h1 className={s.titleDesktop}>Welcome to</h1>
           <div className={s.logo}>
+            <span className={s.arrow}></span>
             <LogoDesktop />
           </div>
         </>

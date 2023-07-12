@@ -3,7 +3,7 @@ import { authOperations } from "./index";
 const { signUp } = authOperations;
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { username: null, email: null },
   token: null,
   isLogIn: false,
 
@@ -30,7 +30,7 @@ const authSlice = createSlice({
       .addCase(signUp.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.user.email = payload.email;
-        state.user.name = payload.name;
+        state.user.username = payload.username;
       })
       .addCase(signUp.rejected, (state, { payload }) => {
         state.loading = false;

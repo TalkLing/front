@@ -33,8 +33,21 @@
 }
 
 body {
+  height: auto;
   font-family: "Segoe UI", sans-serif;
   overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: linear-gradient(
+    142deg,
+    rgba(43, 37, 37, 1) 6%,
+    rgba(14, 109, 124, 1) 54%,
+    rgba(34, 118, 114, 1) 62%,
+    rgba(201, 189, 30, 1) 100%
+  );
+  /*@media screen and (min-width: 835px) {
+    background-image: url(./images/Tablet.jpg);
+  }*/
 }
 h1,
 h2,
