@@ -4,7 +4,7 @@ import { ReactComponent as ButtonAdd } from "../../images/icons/ButtonAdd.svg";
 import { DotsButton } from "../../components/Dots/Dots";
 import { PageFormatContext, format } from "../../context/PageFormatContext";
 import { ReactComponent as Logo } from "../../images/icons/Logo.svg";
-import { ReactComponent as LogoDesktop } from "../../images/icons/LogoDesktop.svg";
+import { ReactComponent as LogoDesktop } from "../../images/icons/LogoDesktopWithoutDots.svg";
 import { ReactComponent as LogoTablet } from "../../images/icons/LogoTabletWelcomePage.svg";
 import s from "./WelcomeTo.module.scss";
 
@@ -66,6 +66,11 @@ export const WelcomeTo = () => {
           <div className={s.logo}>
             <span className={s.arrow}></span>
             <LogoDesktop />
+          </div>
+          <div className={s.animation}>
+            <p className={s.ballBlue1} />
+            <p className={s.ballBlue2} />
+            <p className={s.ballYellow} />
           </div>
         </>
       )}
