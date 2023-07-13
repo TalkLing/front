@@ -161,3 +161,124 @@
     background-image: url(../../images/icons/ArrowButtonActive.svg);
   }
 }
+
+.animation {
+  display: flex;
+  justify-content: center;
+  margin-top: -325px;
+  margin-right: 40px;
+}
+.ballBlue1 {
+  position: relative;
+  width: 35px;
+  height: 34px;
+  border-radius: 50%;
+  animation: bounce1 1s ease-in-out infinite alternate /*alternate-reverse*/;
+  margin-right: 22px;
+}
+.ballBlue2 {
+  position: relative;
+  width: 35px;
+  height: 34px;
+  border-radius: 50%;
+  animation: bounce2 1s ease-in-out infinite;
+  margin-right: 22px;
+}
+.ballYellow {
+  position: relative;
+  width: 35px;
+  height: 34px;
+  border-radius: 50%;
+  animation: bounce3 1s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes bounce1 {
+  from {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #e5e155 34%,
+      rgba(229, 226, 84, 0.92) 50%,
+      rgba(221, 242, 70, 0.8) 96%
+    );
+  }
+
+  to {
+    background-color: #4f8af0;
+  }
+
+  from {
+    background-color: #70c5c6;
+  }
+
+  to {
+    background: linear-gradient(359deg, #70c5c6 0%, #4f8af0 100%);
+  }
+
+  from {
+    background-color: #70c5c6;
+  }
+
+  to {
+    background: linear-gradient(359deg, #70c5c6 0%, #4f8af0 100%);
+  }
+}
+
+@keyframes bounce2 {
+  from {
+    background-color: #70c5c6;
+  }
+
+  to {
+    background: linear-gradient(359deg, #70c5c6 0%, #4f8af0 100%);
+  }
+
+  from {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #e5e155 34%,
+      rgba(229, 226, 84, 0.92) 50%,
+      rgba(221, 242, 70, 0.8) 96%
+    );
+  }
+
+  to {
+    background-color: #4f8af0;
+  }
+  from {
+    background-color: #70c5c6;
+  }
+
+  to {
+    background: linear-gradient(359deg, #70c5c6 0%, #4f8af0 100%);
+  }
+}
+
+@keyframes bounce3 {
+  from {
+    background-color: #70c5c6;
+  }
+
+  to {
+    background: linear-gradient(359deg, #70c5c6 0%, #4f8af0 100%);
+  }
+
+  from {
+    background-color: #70c5c6;
+  }
+
+  to {
+    background: linear-gradient(359deg, #70c5c6 0%, #4f8af0 100%);
+  }
+  from {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #e5e155 34%,
+      rgba(229, 226, 84, 0.92) 50%,
+      rgba(221, 242, 70, 0.8) 96%
+    );
+  }
+
+  to {
+    background-color: #4f8af0;
+  }
+}
