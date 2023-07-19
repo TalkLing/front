@@ -23,7 +23,8 @@ export const signUp = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post(
-        "http://talkling.us-east-1.elasticbeanstalk.com/register",
+        "https://talkling.us-east-1.elasticbeanstalk.com/register",
+        /* "http://talkling.us-east-1.elasticbeanstalk.com/register",*/
         credentials
       );
       // token.set(token);

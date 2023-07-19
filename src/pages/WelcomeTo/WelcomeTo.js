@@ -5,7 +5,7 @@ import { DotsButton } from "../../components/Dots/Dots";
 import { PageFormatContext, format } from "../../context/PageFormatContext";
 import { ReactComponent as Logo } from "../../images/icons/Logo.svg";
 import { ReactComponent as LogoDesktop } from "../../images/icons/LogoDesktopWithoutDots.svg";
-import { ReactComponent as LogoTablet } from "../../images/icons/LogoTabletWelcomePage.svg";
+import { ReactComponent as LogoTablet } from "../../images/icons/LogoTabletWithoutDots.svg";
 import s from "./WelcomeTo.module.scss";
 
 export const WelcomeTo = () => {
@@ -37,7 +37,7 @@ export const WelcomeTo = () => {
         <>
           <h1 className={s.title}>Welcome to</h1>
           <div className={s.logo}>
-            <Logo />
+            <Logo className={s.logoItem} />
           </div>
           <div className={s.button}>
             <DotsButton />
@@ -55,7 +55,12 @@ export const WelcomeTo = () => {
           <h1 className={s.titleTablet}>Welcome to</h1>
           <div className={s.logo}>
             <span className={s.arrow}></span>
-            <LogoTablet />
+            <LogoTablet className={s.logoItem} />
+          </div>
+          <div className={s.animation}>
+            <p className={`${s.ballBlue1} ${s.ball}`} />
+            <p className={`${s.ballBlue2} ${s.ball}`} />
+            <p className={`${s.ballYellow} ${s.ball}`} />
           </div>
         </>
       )}
@@ -65,7 +70,7 @@ export const WelcomeTo = () => {
           <h1 className={s.titleDesktop}>Welcome to</h1>
           <div className={s.logo}>
             <span className={s.arrow}></span>
-            <LogoDesktop />
+            <LogoDesktop className={s.logoItem} />
           </div>
           <div className={s.animation}>
             <p className={s.ballBlue1} />

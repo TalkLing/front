@@ -29,6 +29,7 @@
   line-height: 1;
   color: $secondary;
   font-family: $segoe;
+  // filter: drop-shadow(1px 1px 1px #ded914);
 }
 
 .logo {
@@ -42,8 +43,7 @@
   }
 }
 .logoItem {
-  display: block;
-  margin-left: 0;
+  //filter: drop-shadow(3px 3px 3px #ded914);
 }
 .titleTablet {
   margin-bottom: 80px;
@@ -54,6 +54,7 @@
   line-height: 1.25;
   letter-spacing: 0.32px;
   text-transform: uppercase;
+  // filter: drop-shadow(3px 3px 3px #ded914);
 }
 .aboutUs {
   text-align: left;
@@ -144,6 +145,7 @@
   letter-spacing: 0.48px;
   color: $secondary;
   text-transform: uppercase;
+  //filter: drop-shadow(3px 3px 3px #ded914);
 }
 
 .icon {
@@ -165,30 +167,37 @@
 .animation {
   display: flex;
   justify-content: center;
-  margin-top: -325px;
+  margin-top: -215px;
   margin-right: 40px;
+
+  @media screen and (min-width: 1440px) {
+    margin-top: -325px;
+    margin-right: 40px;
+  }
+}
+.ball {
+  position: relative;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  // filter: drop-shadow(2px 2px 2px #ded914);
+  @media screen and (min-width: 1440px) {
+    width: 35px;
+    height: 34px;
+  }
 }
 .ballBlue1 {
-  position: relative;
-  width: 35px;
-  height: 34px;
-  border-radius: 50%;
+  @extend .ball;
   animation: bounce1 1s ease-in-out infinite alternate /*alternate-reverse*/;
   margin-right: 22px;
 }
 .ballBlue2 {
-  position: relative;
-  width: 35px;
-  height: 34px;
-  border-radius: 50%;
+  @extend .ball;
   animation: bounce2 1s ease-in-out infinite;
   margin-right: 22px;
 }
 .ballYellow {
-  position: relative;
-  width: 35px;
-  height: 34px;
-  border-radius: 50%;
+  @extend .ball;
   animation: bounce3 1s ease-in-out infinite alternate-reverse;
 }
 
