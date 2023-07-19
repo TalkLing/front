@@ -68,3 +68,53 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+function findSymbol(str) {
+let unicArray = [];
+let arr = str.trim().split(" ");
+// console.log("arr", arr);
+
+    let eachWord = [...arr];
+    eachWord.forEach((value, index) => {
+      let sliceArr = eachWord.slice(index, index + 1);
+      // console.log("sliceArr", sliceArr);
+
+      let unicSymbol =
+        /*https://qna.habr.com/q/841013*/
+        Object.entries(
+          Array.prototype.reduce.call(
+            sliceArr.toString(),
+            (acc, char) => ({
+              ...acc,
+              [char]: (acc[char] || 0) + 1,
+            }),
+            {}
+          )
+        ).filter(([, count]) => count === 1)[0]?.[0] || "";
+
+      unicArray.push(unicSymbol);
+      //console.log("unicArray", unicArray);
+      return unicArray;
+    });
+
+    let condition = unicArray.find(
+      (el) => unicArray.indexOf(el) === unicArray.lastIndexOf(el)
+    );
+    //console.log("condition", condition);
+    return condition;
+
+}
+
+/_console.log(
+"function",
+findSymbol(
+"The Tao gave birth to machine language. Machine language gave birth to the assembler. The assembler gave birth to the compiler. Now there are ten thousand languages.Each language has its purpose, however humble. Each language expresses the Yin and Yang of software. Each language has its place within the Tao. But do not program in COBOL if you can avoid it. -- Geoffrey James, The Tao of Programming"
+)
+);_/
+
+/_ console.log(
+"function",
+findSymbol(
+"C makes it easy for you to shoot yourself in the foot. C++ makes that harder, but when you do, it blows away your whole leg. (с) Bjarne Stroustrup"
+)
+);_/
