@@ -7,6 +7,9 @@ import { Chat } from "./pages/Chat";
 import { WelcomeTo } from "./pages/WelcomeTo/WelcomeTo";
 import { Connect } from "./pages/Connect/Connect";
 import { Auth } from "./pages/Auth/Auth";
+import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
+import { SendRequest } from "./pages/SendRequest/SendRequest";
+import { ConfirmPassword } from "./pages/ConfirmPassword/ConfirmPassword";
 import { themes } from "./styles/themes";
 import "./App.css";
 
@@ -66,6 +69,9 @@ function App() {
           <Route path="/auth" element={<Auth />} />
           <Route path="/login" element={<Login />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/sendRequest" element={<SendRequest />} />
+          <Route path="/confirmPassword" element={<ConfirmPassword />} />
+          <Route path="/errorPage" element={<ErrorPage />} />
         </Routes>
       </PageFormatContext.Provider>
     </div>
