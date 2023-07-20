@@ -103,8 +103,10 @@ export const LoginForm = () => {
         <span className={s.mistake}>{formik.errors.password}</span>
       ) : null}
       </div>
-
-      <a href="/" className={s.forgot}>Forgot Password?</a>
+      
+      <NavLink to="/sendRequest">
+        <a href="/sendRequest" className={s.forgot}>Forgot Password?</a>
+      </NavLink>
 
       <button
         className={s.btn}
@@ -123,6 +125,12 @@ export const LoginForm = () => {
           <NavLink to="/registration">
             <a href="/registration" className={s.sign}>
               Sign Up
+            </a>
+          </NavLink>
+          <br/>
+          <NavLink to="/errorPage">
+            <a href="/errorPage" className={s.sign}>
+              Go to ErrorPage
             </a>
           </NavLink>
         </div>
