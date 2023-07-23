@@ -1,0 +1,89 @@
+@import "../../styles/variables.scss";
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-color: #eef4ff;
+}
+
+.top {
+  height: 52px;
+  background-color: #1c274c;
+}
+
+.content {
+  padding: 0 40px;
+}
+
+.back {
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../images/icons/ArrowBack.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pictureContainer {
+  margin-top: 92px;
+  padding: 20px 25px 13px 22px;
+  width: 279px;
+  height: 279px;
+  background-image: url(../../images/ErrorPicture.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text {
+  margin-top: 20px;
+  color: #000;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.24px;
+}
+
+.next {
+  margin-top: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 312px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: $primary;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.16px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $secondary;
+  }
+
+  &::after {
+    display: block;
+    position: absolute;
+    margin-top: 63px;
+    margin-left: -30px;
+    left: 50%;
+    content: "";
+    width: 72px;
+    height: 2px;
+    background-color: $mainBlack;
+
+    @media screen and (min-width: 835px) {
+      width: 0px;
+      height: 0px;
+    }
+  }
+}

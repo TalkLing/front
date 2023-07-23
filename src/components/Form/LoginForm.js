@@ -130,6 +130,12 @@ export const LoginForm = () => {
             Sign Up
           </a>
         </NavLink>
+        <br />
+        <NavLink to="/errorPage">
+          <a href="/errorPage" className={s.sign}>
+            Go to ErrorPage
+          </a>
+        </NavLink>
       </div>
     </form>
   );
