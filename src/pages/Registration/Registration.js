@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { PageFormatContext, format } from "../../context/PageFormatContext";
 import { ReactComponent as Logo } from "../../images/icons/LogoDesktopForSignUpPage.svg";
 import { ReactComponent as ButtonAdd } from "../../images/icons/ButtonAdd.svg";
@@ -11,6 +12,7 @@ import { ReactComponent as LogoTablet } from "../../images/icons/LogoTablet.svg"
 import { ReactComponent as LineTablet } from "../../images/icons/LineTablet.svg";
 import { ReactComponent as LogoDesktop } from "../../images/icons/LogoDesktopForRegistration.svg";
 import { ReactComponent as LineDesktop } from "../../images/icons/LineDesktop.svg";
+import { authSelectors } from "../../redux/auth";
 import s from "./Registration.module.scss";
 
 export const Registration = () => {
@@ -19,6 +21,12 @@ export const Registration = () => {
   const isMobile = pageFormat === response || pageFormat === mobile;
   const isDesktop = pageFormat === desktop;
   const isTablet = pageFormat === tablet;
+  const user = useSelector(authSelectors.getIsLoggedIn);
+  const navigate = useNavigate();
+
+  console.log("user", user);
+
+  user && navigate("/chat");
 
   return (
     <div className={s.container}>

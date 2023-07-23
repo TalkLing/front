@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { PageFormatContext, format } from "./context/PageFormatContext";
 import { Registration } from "./pages/Registration/Registration";
 import { Login } from "./pages/Login/Login";
@@ -11,6 +12,7 @@ import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { SendRequest } from "./pages/SendRequest/SendRequest";
 import { ConfirmPassword } from "./pages/ConfirmPassword/ConfirmPassword";
 import { themes } from "./styles/themes";
+import { authSelectors } from "./redux/auth";
 import "./App.css";
 
 //axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
@@ -18,6 +20,21 @@ import "./App.css";
 function App() {
   const [pageFormat, setPageFormat] = useState(null);
   const { mobile, tablet, desktop } = themes.breakPoints;
+  const dispatch = useDispatch();
+  const firstLoading = useRef(true);
+  const isLoadingUser = useSelector(authSelectors.getLoadingUser);
+
+  useEffect(() => {
+    if (firstLoading.current) {
+      firstLoading.current = false;
+      return;
+    }
+  }, []);
+
+  /*useEffect(() => {
+    dispatch(authOperations.getUser());
+  }, [dispatch]);*/
+
   const user = false;
 
   useEffect(() => {

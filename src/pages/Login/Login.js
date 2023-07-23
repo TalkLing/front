@@ -1,10 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { PageFormatContext, format } from "../../context/PageFormatContext";
 import { ReactComponent as Logo } from "../../images/icons/Logo.svg";
 import { LoginForm } from "../../components/Form/LoginForm";
 import { ReactComponent as LogoTablet } from "../../images/icons/LogoTablet.svg";
 import { ReactComponent as LogoDesktop } from "../../images/icons/LogoDesktopForRegistration.svg";
+import { authSelectors } from "../../redux/auth";
 import s from "./Login.module.scss";
 
 export const Login = () => {
@@ -13,16 +15,18 @@ export const Login = () => {
   const isMobile = pageFormat === response || pageFormat === mobile;
   const isTablet = pageFormat === tablet;
   const isDesktop = pageFormat === desktop;
+  const user = useSelector(authSelectors.getIsLoggedIn);
+  const navigate = useNavigate();
+
+  console.log("user", user);
+
+  user && navigate("/chat");
 
   return (
     <div className={s.container}>
       {isMobile && (
         <>
-          <NavLink to="/auth">
-            <a href="/auth" className={s.back}>
-              {" "}
-            </a>
-          </NavLink>
+          <NavLink to="/auth" className={s.back}></NavLink>
 
           <div className={s.logo}>
             <Logo style={{ width: "72px", height: "90px" }} />
@@ -78,18 +82,15 @@ export const Login = () => {
               <p>COMMUNICATE,</p> CONQUER LANGUAGES
             </h1>
             <div className={s.aboutUs}>
-                <p>
-                  To ensure effective communication and targeted discussions,
-                </p>
-                <p> we've created different groups based on your language</p>
-                <p>
-                  proficiency and professional goals. This way, you can engage
-                </p>
-                <p>
-                  with like-minded individuals, practice your English skills,
-                  and
-                </p>
-                <p>grow together.</p>
+              <p>To ensure effective communication and targeted discussions,</p>
+              <p> we've created different groups based on your language</p>
+              <p>
+                proficiency and professional goals. This way, you can engage
+              </p>
+              <p>
+                with like-minded individuals, practice your English skills, and
+              </p>
+              <p>grow together.</p>
             </div>
           </div>
 

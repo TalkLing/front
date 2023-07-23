@@ -28,7 +28,7 @@ export const SendRequest = () => {
 
         <div className={s.hint}>
           Pleace enter your email. You will resive a link
-          <br/>
+          <br />
           to create a new password via email
         </div>
 
@@ -59,4 +59,4 @@ export const SendRequest = () => {
       </>
     </div>
   );
-}
+};

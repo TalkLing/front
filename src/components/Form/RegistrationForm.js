@@ -23,6 +23,7 @@ export const RegistrationForm = () => {
       email: "",
       password: "",
       confirmPassword: "",
+      termsOfService: false,
     },
     validationSchema: validationRegistrationSchema,
     validate,
@@ -172,14 +173,20 @@ export const RegistrationForm = () => {
       <div className={s.checkbox}>
         <input
           type="checkbox"
-          id="agreement"
+          id="termsOfService"
           className={s.customChecbox}
-          name="agreement"
-          value="no"
+          name="termsOfService"
+          onChange={formik.handleChange}
+          value={formik.values.termsOfService}
         />
-        <label htmlFor="agreement" className={s.checkLabel}>
+        <label htmlFor="termsOfService" className={s.checkLabel}>
           I agree to the terms of service
         </label>
+        {formik.touched.termsOfService && formik.errors.termsOfService ? (
+          <span className={s.mistake}>{formik.errors.termsOfService}</span>
+        ) : (
+          " "
+        )}
       </div>
 
       <button

@@ -26,8 +26,8 @@ export const ErrorPage = () => {
             <div className={s.pictureContainer}></div>
 
             <div className={s.text}>
-              Sorry{'((('}
-              <br/>
+              Sorry{"((("}
+              <br />
               Page not found
             </div>
 
@@ -48,5 +48,5 @@ export const ErrorPage = () => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
