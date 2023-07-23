@@ -13,7 +13,7 @@ import {
 
 import storage from "redux-persist/lib/storage";
 
-import authSlice from "./auth/slice";
+import authReduser from "./auth/slice";
 
 const persistAuthConfig = {
   key: "local-token",
@@ -26,27 +26,27 @@ const persistRootConfig = {
   whitelist: [],
 };
 
-/*const rootReducer = combineReducers({
+const rootReducer = combineReducers({
   auth: persistReducer(persistAuthConfig, authReduser),
 
   // ... other reducers
-});*/
+});
 
-/*const logger = createLogger({
+const logger = createLogger({
   timestamp: false,
   collapsed: (getState, action, logEntry) => !logEntry.error,
   predicate: () => process.env.NODE_ENV !== "production",
-});*/
+});
 
 const store = configureStore({
-  reducer: { auth: authSlice },
+  reducer: persistReducer(persistRootConfig, rootReducer),
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-    //logger,
+    logger,
     // otherMiddlewares,
   ],
   //devTools: process.env.NODE_ENV !== "production",

@@ -1,11 +1,11 @@
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { authOperations } from "../../redux/auth";
 import {
   validationLoginSchema,
-  // validateLogin,
+  validateLogin,
 } from "../../helpers/Validation/ValidationLogin";
 import { PageFormatContext, format } from "../../context/PageFormatContext";
 import s from "./LoginForm.module.scss";
@@ -15,30 +15,31 @@ export const LoginForm = () => {
   const { desktop } = format;
   const pageFormat = useContext(PageFormatContext);
   const isDesktop = pageFormat === desktop;
+  /*  const error = useSelector(authSelectors.getError);
+
+  useEffect(() => {
+    if (!error) return;
+  }, [error]);*/
 
   const formik = useFormik({
     initialValues: {
-      name: "",
       email: "",
       password: "",
-      confirmPassword: "",
     },
     validationSchema: validationLoginSchema,
-    // validateLogin,
+    validateLogin,
     onSubmit: (values, obj) => {
-      alert(JSON.stringify(values, null, 2));
-      const { name, email, password, confirmPassword } = values;
-      const credentials = { name, email, password, confirmPassword };
-      dispatch(authOperations.signUp(credentials));
+      const { email: e, password } = values;
+      const email = e.toLowerCase();
+      dispatch(authOperations.signIn({ email, password }));
       obj.setSubmitting(false);
-      localStorage.setItem("info", true);
       sessionStorage.setItem("auth-form", null);
       obj.resetForm();
     },
   });
 
   return (
-    <form className={s.form}>
+    <form className={s.form} onSubmit={formik.handleSubmit}>
       <div className={s.inputContainer}>
         <div
           className={s.inputField}
@@ -59,6 +60,8 @@ export const LoginForm = () => {
             id="email"
             name="email"
             type="text"
+            min={8}
+            max={40}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email.trim()}
@@ -92,23 +95,25 @@ export const LoginForm = () => {
             name="password"
             type="password"
             placeholder="Password"
-            minLength={5}
+            minLength={8}
             maxLength={30}
             onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
             value={formik.values.password.trim()}
           />
         </div>
         {formik.touched.password && formik.errors.password ? (
-        <span className={s.mistake}>{formik.errors.password}</span>
-      ) : null}
+          <span className={s.mistake}>{formik.errors.password}</span>
+        ) : null}
       </div>
 
-      <a href="/" className={s.forgot}>Forgot Password?</a>
+      <a href="/" className={s.forgot}>
+        Forgot Password?
+      </a>
 
       <button
         className={s.btn}
         type="submit"
+        // disabled={!formik.isValid}
         style={{
           width: isDesktop && "414px",
           fontSize: isDesktop && "20px",
@@ -119,13 +124,13 @@ export const LoginForm = () => {
       </button>
 
       <div className={s.dontHave}>
-          Don`t have an account? {}
-          <NavLink to="/registration">
-            <a href="/registration" className={s.sign}>
-              Sign Up
-            </a>
-          </NavLink>
-        </div>
+        Don`t have an account? {}
+        <NavLink to="/registration">
+          <a href="/registration" className={s.sign}>
+            Sign Up
+          </a>
+        </NavLink>
+      </div>
     </form>
-  )
-}
+  );
+};

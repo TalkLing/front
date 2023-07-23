@@ -18,12 +18,13 @@ const token = {
   },
 };
 
-export const signUp = createAsyncThunk(
+const signUp = createAsyncThunk(
   "auth/signUp",
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post(
-        "https://talkling.us-east-1.elasticbeanstalk.com/register",
+        "https://lang.talkling.online/register",
+        //"http://talkling.us-east-1.elasticbeanstalk.com/register",
         /* "http://talkling.us-east-1.elasticbeanstalk.com/register",*/
         credentials
       );
@@ -36,3 +37,19 @@ export const signUp = createAsyncThunk(
     }
   }
 );
+
+const signIn = createAsyncThunk("auth/logIn", async (credentials, thunkAPI) => {
+  try {
+    const res = await axios.post(
+      "https://lang.talkling.online/login",
+      credentials
+    );
+    token.set(res.data.token);
+    alert("You are welcome");
+    return res.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export { signUp, signIn /*signOut, getUser*/ };

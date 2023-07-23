@@ -8,6 +8,10 @@ export const validationRegistrationSchema = Yup.object({
   password: Yup.string().min(8).max(30).required().typeError(),
 
   confirmPassword: Yup.string().min(8).max(30).required().typeError(),
+
+  termsOfService: Yup.boolean().required(
+    "You must accept the Terms of Service to proceed"
+  ),
 });
 
 export const validate = (values) => {
@@ -54,5 +58,10 @@ export const validate = (values) => {
   } else if (values.confirmPassword !== values.password) {
     errors.confirmPassword = "password mismatch";
   }
+
+  if (!values.termsOfService) {
+    errors.termsOfService = "You must accept the Terms of Service to proceed";
+  }
+
   return errors;
 };

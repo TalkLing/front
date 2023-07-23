@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { PageFormatContext, format } from "./context/PageFormatContext";
 import { Registration } from "./pages/Registration/Registration";
 import { Login } from "./pages/Login/Login";
@@ -7,6 +8,7 @@ import { Chat } from "./pages/Chat";
 import { WelcomeTo } from "./pages/WelcomeTo/WelcomeTo";
 import { Connect } from "./pages/Connect/Connect";
 import { Auth } from "./pages/Auth/Auth";
+import { authSelectors, authOperations } from "./redux/auth";
 import { themes } from "./styles/themes";
 import "./App.css";
 
@@ -15,6 +17,21 @@ import "./App.css";
 function App() {
   const [pageFormat, setPageFormat] = useState(null);
   const { mobile, tablet, desktop } = themes.breakPoints;
+  const dispatch = useDispatch();
+  const firstLoading = useRef(true);
+  const isLoadingUser = useSelector(authSelectors.getLoadingUser);
+
+  useEffect(() => {
+    if (firstLoading.current) {
+      firstLoading.current = false;
+      return;
+    }
+  }, []);
+
+  /*useEffect(() => {
+    dispatch(authOperations.getUser());
+  }, [dispatch]);*/
+
   const user = false;
 
   useEffect(() => {
