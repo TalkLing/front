@@ -8,8 +8,10 @@
   flex-direction: column;
   align-items: center;
   border-color: aqua;
+
   @media screen and (min-width: 835px) {
     padding: 0px 24px 42px 31px;
+    height: auto;
   }
 }
 
