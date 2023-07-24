@@ -163,7 +163,10 @@
     background-image: url(../../images/icons/ArrowButtonActive.svg);
   }
 }
-
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+}
 .animation {
   display: flex;
   justify-content: center;
@@ -171,8 +174,8 @@
   margin-right: 40px;
 
   @media screen and (min-width: 1440px) {
-    // margin-top: -325px;
-    margin-top: -245px;
+    margin-top: -315px;
+    // margin-top: -245px;
     margin-right: 40px;
   }
 }
@@ -181,10 +184,11 @@
   width: 23px;
   height: 23px;
   border-radius: 50%;
-  filter: drop-shadow(2px 2px 2px #ded914);
+
   @media screen and (min-width: 1440px) {
     width: 35px;
     height: 34px;
+    filter: drop-shadow(2px 2px 2px #ded914);
   }
 }
 .ballBlue1 {

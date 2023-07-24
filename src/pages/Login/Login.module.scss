@@ -38,7 +38,7 @@
   padding-bottom: 33px;
 
   @media screen and (min-width: 835px) {
-    padding-top: 81px;
+    padding-top: 40px;
     padding-bottom: 0px;
     margin-bottom: 65px;
   }
@@ -98,14 +98,14 @@
 
   @media screen and (min-width: 1440px) {
     width: 540px;
-    padding-bottom: 288px;
+    padding-bottom: 268px;
   }
 }
 
 .links {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
+  margin-bottom: 32px;
   @media screen and (min-width: 1440px) {
     margin-bottom: 60px;
   }
@@ -115,7 +115,7 @@
   padding-top: 32px;
   padding-bottom: 32px;
   padding-left: 70px;
-  padding-right: 70px;
+  padding-right: 68px;
   border-bottom: 1px solid $borderBottom;
 
   @media screen and (min-width: 1440px) {

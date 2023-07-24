@@ -8,6 +8,7 @@ import { ReactComponent as LogoTablet } from "../../images/icons/LogoTablet.svg"
 import { ReactComponent as LogoDesktop } from "../../images/icons/LogoDesktopForRegistration.svg";
 import { authSelectors } from "../../redux/auth";
 import s from "./Login.module.scss";
+import { Links } from "../../components/Links/Links";
 
 export const Login = () => {
   const { response, mobile, tablet, desktop } = format;
@@ -20,18 +21,16 @@ export const Login = () => {
 
   console.log("user", user);
 
-  user && navigate("/chat");
+  user === true && navigate("/chat");
 
   return (
     <div className={s.container}>
       {isMobile && (
         <>
           <NavLink to="/auth" className={s.back}></NavLink>
-
           <div className={s.logo}>
             <Logo style={{ width: "72px", height: "90px" }} />
           </div>
-
           <LoginForm />
         </>
       )}
@@ -57,14 +56,7 @@ export const Login = () => {
           </div>
 
           <div className={s.form}>
-            <div className={s.links}>
-              <NavLink to="/registration" className={s.linkItem}>
-                Sign Up
-              </NavLink>
-              <NavLink to="/login" className={s.linkItem}>
-                Sign In
-              </NavLink>
-            </div>
+            <Links style={{ marginBottom: "40px" }} />
 
             <LoginForm className={s.signup} />
           </div>
@@ -95,14 +87,7 @@ export const Login = () => {
           </div>
 
           <div className={s.form}>
-            <div className={s.links}>
-              <NavLink to="/registration" className={s.linkItem}>
-                Sign Up
-              </NavLink>
-              <NavLink to="/login" className={s.linkItem}>
-                Sign In
-              </NavLink>
-            </div>
+            <Links />
 
             <LoginForm className={s.signup} />
           </div>

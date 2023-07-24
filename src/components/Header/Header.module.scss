@@ -1,0 +1,25 @@
+@import "../../styles/variables.scss";
+
+.header {
+  height: 52px;
+  background-color: $headerColor;
+
+  @media screen and (min-width: 835px) {
+    height: 49px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 102px;
+  }
+}
+
+.logo {
+  margin-left: 21px;
+  margin-top: 2px;
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 67px;
+    padding-top: 4px;
+    margin-top: 0;
+  }
+}

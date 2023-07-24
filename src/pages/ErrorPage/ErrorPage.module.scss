@@ -3,16 +3,35 @@
 .background {
   width: 100vw;
   height: 100vh;
-  background-color: #eef4ff;
-}
-
-.top {
-  height: 52px;
-  background-color: #1c274c;
+  background-color: $errorBackground;
 }
 
 .content {
-  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 92px 40px 0px 40px;
+
+  @media screen and (min-width: 835px) {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left: 206px;
+  }
+}
+
+.container {
+  @media screen and (min-width: 835px) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 128px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 64px;
+  }
 }
 
 .back {
@@ -21,33 +40,74 @@
   left: 20px;
   width: 24px;
   height: 24px;
-  background-image: url(../../images/icons/ArrowBack.svg);
+  background-image: url(../../images/icons/ArrowBackBlack.svg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .pictureContainer {
-  margin-top: 92px;
-  padding: 20px 25px 13px 22px;
-  width: 279px;
-  height: 279px;
-  background-image: url(../../images/ErrorPicture.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin: 0 auto;
+  // margin-top: 92px;
 }
 
+.textContainer {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 835px) {
+    align-items: flex-start;
+    margin-right: 23px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-left: 64px;
+    margin-right: 0;
+  }
+}
 .text {
   margin-top: 20px;
-  color: #000;
+  color: $textColor;
   text-align: center;
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
   letter-spacing: 0.24px;
-}
 
-.next {
-  margin-top: 53px;
+  @media screen and (min-width: 835px) {
+    margin-top: 0;
+    padding-left: 21px;
+    margin-bottom: 40px;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 0.32px;
+    text-align: left;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.17;
+    letter-spacing: 0.48px;
+  }
+}
+.about {
+  margin-bottom: 63px;
+  text-align: left;
+  padding-left: 21px;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.16px;
+  color: $textColor;
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 236px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.88;
+    letter-spacing: 0.16px;
+  }
+}
+.btn {
+  margin-top: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,6 +124,19 @@
   letter-spacing: 0.16px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  @media screen and (min-width: 835px) {
+    margin-top: 0;
+    margin-left: 21px;
+    min-width: 216px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.2px;
+  }
+  @media screen and (min-width: 1440px) {
+    min-width: 210px;
+    height: 56px;
+  }
   &:hover,
   &:focus,
   &:active {
@@ -73,7 +146,7 @@
   &::after {
     display: block;
     position: absolute;
-    margin-top: 63px;
+    margin-top: 193px;
     margin-left: -30px;
     left: 50%;
     content: "";
