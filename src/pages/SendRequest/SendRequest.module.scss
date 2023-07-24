@@ -7,13 +7,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // background-image: url(../../images/gradient.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  border-color: aqua;
+  //border-color: aqua;
 
   @media screen and (min-width: 835px) {
-    padding: 0px 24px 42px 31px;
+    padding: 0px 36px 42px 82px;
   }
 }
 
@@ -64,10 +63,18 @@
   width: 312px;
   margin-bottom: 40px;
 
+  @media screen and (min-width: 835px) {
+    width: 310px;
+    height: 44px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+  }
+
   @media screen and (min-width: 1440px) {
     align-items: stretch;
     width: 414px;
     height: 56px;
+    margin-bottom: 100px;
   }
 }
 
@@ -147,5 +154,61 @@
       width: 0px;
       height: 0px;
     }
+  }
+}
+
+.aboutContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  @media screen and (min-width: 835px) {
+    gap: 34px;
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 0;
+  }
+}
+.formContainer {
+  margin-top: 100px;
+  padding-right: 35px;
+}
+.form {
+  width: 390px;
+  height: 550px;
+  border-radius: 32px;
+  background-color: $chatBackground;
+
+  @media screen and (min-width: 1440px) {
+    width: 540px;
+    height: 745px;
+  }
+}
+.links {
+  margin-bottom: 40px;
+}
+
+.text {
+  padding-left: 45px;
+  padding-right: 45px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43; /* 142.857% */
+  letter-spacing: 0.14px;
+  color: $mainBlack;
+
+  @media screen and (min-width: 1440px) {
+    padding-left: 92px;
+    padding-right: 92px;
+    margin-bottom: 20px;
+  }
+}
+
+.btnText {
+  @media screen and (min-width: 1440px) {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1; /* 100% */
+    letter-spacing: 0.2px;
   }
 }

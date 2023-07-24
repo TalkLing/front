@@ -39,7 +39,7 @@ export const WelcomeTo = () => {
         <>
           <h1 className={s.title}>Welcome to</h1>
           <div className={s.logo}>
-            <Logo className={s.logoItem} />
+            <Logo />
           </div>
           <div className={s.button}>
             <DotsButton />
@@ -57,7 +57,7 @@ export const WelcomeTo = () => {
           <h1 className={s.titleTablet}>Welcome to</h1>
           <div className={s.logo}>
             <span className={s.arrow}></span>
-            <LogoTablet className={s.logoItem} />
+            <LogoTablet />
           </div>
           <div className={s.animation}>
             <p className={`${s.ballBlue1} ${s.ball}`} />
@@ -72,9 +72,9 @@ export const WelcomeTo = () => {
           <h1 className={s.titleDesktop}>Welcome to</h1>
           <div className={s.logo}>
             <span className={s.arrow}></span>
-            <div style={{ display: "flex", flexDiraction: "column" }}>
+            <div className={s.titleContainer}>
               <LogoDesktop className={s.logoItem} />
-              <Title style={{}} />
+              <Title style={{ marginTop: "15px" }} />
             </div>
           </div>
           <div className={s.animation}>

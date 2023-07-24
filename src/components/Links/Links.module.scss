@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 60px;
+  }
+}
+.linkItem {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 67px;
+  padding-right: 67px;
+  border-bottom: 1px solid $borderBottom;
+
+  @media screen and (min-width: 1440px) {
+    padding-left: 98px;
+    padding-right: 99px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.2px;
+  }
+}

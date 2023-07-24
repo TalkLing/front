@@ -106,9 +106,9 @@ export const LoginForm = () => {
         ) : null}
       </div>
 
-      <a href="/" className={s.forgot}>
+      <NavLink to="/sendRequest" className={s.forgot}>
         Forgot Password?
-      </a>
+      </NavLink>
 
       <button
         className={s.btn}
@@ -125,17 +125,10 @@ export const LoginForm = () => {
 
       <div className={s.dontHave}>
         Don`t have an account? {}
-        <NavLink to="/registration">
-          <a href="/registration" className={s.sign}>
-            Sign Up
-          </a>
+        <NavLink to="/registration" className={s.sign}>
+          Sign Up
         </NavLink>
         <br />
-        <NavLink to="/errorPage">
-          <a href="/errorPage" className={s.sign}>
-            Go to ErrorPage
-          </a>
-        </NavLink>
       </div>
     </form>
   );

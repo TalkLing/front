@@ -1,0 +1,14 @@
+@import "../../styles/variables.scss";
+
+.container {
+  height: calc(100vh - 52px);
+  background-color: #eef4ff;
+
+  @media screen and (min-width: 835px) {
+    height: calc(100vh - 49px);
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: calc(100vh - 102px);
+  }
+}

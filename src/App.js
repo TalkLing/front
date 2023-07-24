@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PageFormatContext, format } from "./context/PageFormatContext";
 import { Registration } from "./pages/Registration/Registration";
 import { Login } from "./pages/Login/Login";
-import { Chat } from "./pages/Chat";
+import { Chat } from "./pages/Chat/Chat";
 import { WelcomeTo } from "./pages/WelcomeTo/WelcomeTo";
 import { Connect } from "./pages/Connect/Connect";
 import { Auth } from "./pages/Auth/Auth";
@@ -23,6 +23,7 @@ function App() {
   const dispatch = useDispatch();
   const firstLoading = useRef(true);
   const isLoadingUser = useSelector(authSelectors.getLoadingUser);
+  const user = useSelector(authSelectors.getIsLoggedIn);
 
   useEffect(() => {
     if (firstLoading.current) {
@@ -34,8 +35,6 @@ function App() {
   /*useEffect(() => {
     dispatch(authOperations.getUser());
   }, [dispatch]);*/
-
-  const user = false;
 
   useEffect(() => {
     const onHandleResize = () => {
@@ -79,17 +78,30 @@ function App() {
   return (
     <div className="App">
       <PageFormatContext.Provider value={pageFormat}>
-        <Routes>
-          <Route path="/registration" element={<Registration />} />
-          <Route exact path="/" element={<WelcomeTo />} />
-          <Route path="/connect" element={<Connect />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/sendRequest" element={<SendRequest />} />
-          <Route path="/confirmPassword" element={<ConfirmPassword />} />
-          <Route path="/errorPage" element={<ErrorPage />} />
-        </Routes>
+        {user === true ? (
+          <Routes>
+            <Route path="/registration" element={<Registration />} />
+            <Route exact path="/" element={<WelcomeTo />} />
+            <Route path="/connect" element={<Connect />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/sendRequest" element={<SendRequest />} />
+            <Route path="/confirmPassword" element={<ConfirmPassword />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/registration" element={<Registration />} />
+            <Route exact path="/" element={<WelcomeTo />} />
+            <Route path="/connect" element={<Connect />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/sendRequest" element={<SendRequest />} />
+            <Route path="/confirmPassword" element={<ConfirmPassword />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        )}
       </PageFormatContext.Provider>
     </div>
   );

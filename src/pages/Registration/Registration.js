@@ -3,16 +3,15 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { PageFormatContext, format } from "../../context/PageFormatContext";
 import { ReactComponent as Logo } from "../../images/icons/LogoDesktopForSignUpPage.svg";
-import { ReactComponent as ButtonAdd } from "../../images/icons/ButtonAdd.svg";
 import { ReactComponent as Line } from "../../images/icons/Line.svg";
 import { ReactComponent as Google } from "../../images/icons/Google.svg";
 import { Button } from "../../components/Button/Button";
 import { RegistrationForm } from "../../components/Form/RegistrationForm";
-import { ReactComponent as LogoTablet } from "../../images/icons/LogoTablet.svg";
 import { ReactComponent as LineTablet } from "../../images/icons/LineTablet.svg";
-import { ReactComponent as LogoDesktop } from "../../images/icons/LogoDesktopForRegistration.svg";
 import { ReactComponent as LineDesktop } from "../../images/icons/LineDesktop.svg";
 import { authSelectors } from "../../redux/auth";
+import { About } from "../../components/About/About";
+import { Links } from "../../components/Links/Links";
 import s from "./Registration.module.scss";
 
 export const Registration = () => {
@@ -24,8 +23,6 @@ export const Registration = () => {
   const user = useSelector(authSelectors.getIsLoggedIn);
   const navigate = useNavigate();
 
-  console.log("user", user);
-
   user && navigate("/chat");
 
   return (
@@ -33,7 +30,6 @@ export const Registration = () => {
       {isMobile && (
         <>
           <NavLink to="/auth" className={s.back}></NavLink>
-
           <div className={s.logo}>
             <Logo style={{ width: "72px", height: "90px" }} />
           </div>
@@ -61,33 +57,10 @@ export const Registration = () => {
 
       {isTablet && (
         <div className={s.tabletContariner}>
-          <div className={s.about}>
-            <div className={s.logo}>
-              <LogoTablet className={s.logoItem} />
-            </div>
-            <h1 className={s.titleTablet}>
-              <p>CONNECT, </p>
-              <p>COMMUNICATE,</p> CONQUER LANGUAGES
-            </h1>
-            <div className={s.aboutUs}>
-              <p>To ensure effective communication and </p>
-              <p>targeted discussions, we've created different </p>
-              <p>groups based on your language proficiency</p>
-              <p> and professional goals. This way, you can</p>{" "}
-              <p>engage with like-minded individuals, practice</p> your English
-              skills, and grow together.
-            </div>
-          </div>
+          <About />
 
           <div className={s.form}>
-            <div className={s.links}>
-              <NavLink to="/registration" className={s.linkItem}>
-                Sign Up
-              </NavLink>
-              <NavLink to="/login" className={s.linkItem}>
-                Sign In
-              </NavLink>
-            </div>
+            <Links />
             <RegistrationForm className={s.signup} />
             <div className={s.textLine}>
               <LineTablet />
@@ -112,39 +85,9 @@ export const Registration = () => {
       {isDesktop && (
         <>
           <div className={s.tabletContariner}>
-            <div className={s.about}>
-              <div className={s.logo}>
-                <LogoDesktop className={s.logoItem} />
-              </div>
-              <h1 className={s.titleTablet}>
-                <p>CONNECT, </p>
-                <p>COMMUNICATE,</p> CONQUER LANGUAGES
-              </h1>
-              <div className={s.aboutUs}>
-                <p>
-                  To ensure effective communication and targeted discussions,
-                </p>
-                <p> we've created different groups based on your language</p>
-                <p>
-                  proficiency and professional goals. This way, you can engage
-                </p>
-                <p>
-                  with like-minded individuals, practice your English skills,
-                  and
-                </p>
-                <p>grow together.</p>
-              </div>
-            </div>
-
+            <About />
             <div className={s.form}>
-              <div className={s.links}>
-                <NavLink to="/registration" className={s.linkItem}>
-                  Sign Up
-                </NavLink>
-                <NavLink to="/login" className={s.linkItem}>
-                  Sign In
-                </NavLink>
-              </div>
+              <Links />
               <RegistrationForm className={s.signup} />
               <div className={s.textLine}>
                 <LineDesktop />
