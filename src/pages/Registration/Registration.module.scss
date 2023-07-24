@@ -11,6 +11,10 @@
   @media screen and (min-width: 360px) and (max-width: 834px) {
     height: 100vh;
   }
+
+  @media screen and (min-width: 835px) {
+    height: auto;
+  }
 }
 .back {
   position: fixed;
