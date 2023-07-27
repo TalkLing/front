@@ -12,9 +12,9 @@ export const Header = ({ style }) => {
   const isDesktop = pageFormat === desktop;
 
   return (
-    <div className={s.header}>
+    <header className={s.header}>
       {isTablet && <LogoHeaderTablet className={s.logo} />}
       {isDesktop && <LogoHeaderDesktop className={s.logo} />}
-    </div>
+    </header>
   );
 };
