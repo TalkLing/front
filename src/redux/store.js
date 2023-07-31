@@ -18,7 +18,7 @@ import authReduser from "./auth/slice";
 const persistAuthConfig = {
   key: "local-token",
   storage,
-  whitelist: ["token"],
+  whitelist: ["token", "isLogIn"],
 };
 const persistRootConfig = {
   key: "root",
@@ -40,6 +40,7 @@ const logger = createLogger({
 
 const store = configureStore({
   reducer: persistReducer(persistRootConfig, rootReducer),
+  // reducer: { auth: authSlice },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({
       serializableCheck: {

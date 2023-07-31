@@ -4,10 +4,10 @@ import { getSignupError } from "../../helpers/TextError";
 
 //axios.defaults.baseURL = "http://talkling.us-east-1.elasticbeanstalk.com";
 
-const SIGN_UP_ENDPOINT = "/register";
+/*const SIGN_UP_ENDPOINT = "/register";
 const SIGN_IN_ENDPOINT = "api/users/login";
 const SIGN_OUT_ENDPOINT = "api/users/logout";
-const GET_USER_ENDPOINT = "api/users/current";
+const GET_USER_ENDPOINT = "api/users/current";*/
 
 const token = {
   set(token) {
@@ -24,11 +24,9 @@ const signUp = createAsyncThunk(
     try {
       const res = await axios.post(
         "https://lang.talkling.online/register",
-        //"http://talkling.us-east-1.elasticbeanstalk.com/register",
-        /* "http://talkling.us-east-1.elasticbeanstalk.com/register",*/
         credentials
       );
-      // token.set(token);
+
       alert("Super! Check your mail and confirm registration.");
       return res.data;
     } catch (error) {
@@ -44,7 +42,13 @@ const signIn = createAsyncThunk("auth/logIn", async (credentials, thunkAPI) => {
       "https://lang.talkling.online/login",
       credentials
     );
+
     token.set(res.data.token);
+
+    localStorage.setItem("token", res.data.token);
+    // localStorage.setItem("user", res.data.auth.isLogIn === true);
+    //console.log("isLogIn", res.data.auth.isLogIn);
+    console.log(res.data);
     alert("You are welcome");
     return res.data;
   } catch (error) {
