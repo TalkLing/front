@@ -32,10 +32,6 @@ function App() {
     }
   }, []);
 
-  /*useEffect(() => {
-    dispatch(authOperations.getUser());
-  }, [dispatch]);*/
-
   useEffect(() => {
     const onHandleResize = () => {
       const viewport = window.innerWidth;
@@ -88,7 +84,7 @@ function App() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/sendRequest" element={<SendRequest />} />
             <Route path="/confirmPassword" element={<ConfirmPassword />} />
-            <Route path="*" element={<ErrorPage />} />
+            {/*<Route path="/*" element={<ErrorPage />} />*/}
           </Routes>
         ) : (
           <Routes>
@@ -99,7 +95,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/sendRequest" element={<SendRequest />} />
             <Route path="/confirmPassword" element={<ConfirmPassword />} />
-            <Route path="*" element={<ErrorPage />} />
+            {/*<Route path="/*" element={<ErrorPage />} />*/}
           </Routes>
         )}
       </PageFormatContext.Provider>

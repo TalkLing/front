@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { useSelector } from "react-redux";
@@ -19,9 +20,10 @@ export const Login = () => {
   const user = useSelector(authSelectors.getIsLoggedIn);
   const navigate = useNavigate();
 
-  console.log("user", user);
-
-  user === true && navigate("/chat");
+  useEffect(() => {
+    user === true && navigate("/chat");
+    console.log("user", user);
+  });
 
   return (
     <div className={s.container}>

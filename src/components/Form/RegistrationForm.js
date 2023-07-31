@@ -33,8 +33,7 @@ export const RegistrationForm = () => {
       const credentials = { username, email, password, confirmPassword };
       dispatch(authOperations.signUp(credentials));
       obj.setSubmitting(false);
-      localStorage.setItem("info", true);
-      sessionStorage.setItem("auth-form", null);
+      //sessionStorage.setItem("auth-form", null);
       obj.resetForm();
     },
   });

@@ -33,7 +33,7 @@ export const LoginForm = () => {
       const email = e.toLowerCase();
       dispatch(authOperations.signIn({ email, password }));
       obj.setSubmitting(false);
-      sessionStorage.setItem("auth-form", null);
+      // sessionStorage.setItem("auth-form", null);
       obj.resetForm();
     },
   });

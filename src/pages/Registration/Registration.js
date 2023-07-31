@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { PageFormatContext, format } from "../../context/PageFormatContext";
@@ -23,7 +23,10 @@ export const Registration = () => {
   const user = useSelector(authSelectors.getIsLoggedIn);
   const navigate = useNavigate();
 
-  user && navigate("/chat");
+  useEffect(() => {
+    user === true && navigate("/chat");
+    console.log("user registered", user);
+  });
 
   return (
     <div className={s.container}>

@@ -80,6 +80,7 @@
 }
 
 .input {
+  width: 250px;
   border: none;
   outline: none;
   background-repeat: no-repeat;
@@ -89,6 +90,10 @@
   line-height: 1.43;
   letter-spacing: 0.14px;
   color: $mainBlack;
+
+  @media screen and (min-width: 1440px) {
+    width: 350px;
+  }
 
   &::placeholder {
     padding-left: 10px;
