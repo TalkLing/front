@@ -1,12 +1,16 @@
 import { useContext, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "firebase/compat/auth";
+import firebase from "firebase/compat/app";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { PageFormatContext, format } from "../../context/PageFormatContext";
 import { ReactComponent as Logo } from "../../images/icons/LogoDesktopForSignUpPage.svg";
 import { ReactComponent as Line } from "../../images/icons/Line.svg";
 import { ReactComponent as Google } from "../../images/icons/Google.svg";
 import { Button } from "../../components/Button/Button";
 import { RegistrationForm } from "../../components/Form/RegistrationForm";
+import { Context } from "../../index";
 import { ReactComponent as LineTablet } from "../../images/icons/LineTablet.svg";
 import { ReactComponent as LineDesktop } from "../../images/icons/LineDesktop.svg";
 import { authSelectors } from "../../redux/auth";
@@ -20,13 +24,21 @@ export const Registration = () => {
   const isMobile = pageFormat === response || pageFormat === mobile;
   const isDesktop = pageFormat === desktop;
   const isTablet = pageFormat === tablet;
-  const user = useSelector(authSelectors.getIsLoggedIn);
+  const userAuth = useSelector(authSelectors.getIsLoggedIn);
   const navigate = useNavigate();
+  const { auth } = useContext(Context);
+  const [user, loading] = useAuthState(auth);
 
   useEffect(() => {
-    user === true && navigate("/chat");
+    (userAuth === true || user) && navigate("/chat");
     console.log("user registered", user);
   });
+
+  const login = async () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const { user } = await auth.signInWithPopup(provider);
+    console.log("user", user);
+  };
 
   return (
     <div className={s.container}>
@@ -43,17 +55,19 @@ export const Registration = () => {
               <p className={s.text}>or</p>
               <Line />
             </div>
-
-            <Button
-              className={s.auth}
-              style={{
-                backgroundColor: "transparent",
-                border: "2px solid  #F6F244",
-              }}
-            >
-              <Google className={s.google} />
-              Continue with Google
-            </Button>
+            <div className={s.auth}>
+              <button
+                onClick={login}
+                className={s.btn}
+                style={{
+                  backgroundColor: "transparent",
+                  border: "2px solid  #F6F244",
+                }}
+              >
+                <Google className={s.google} />
+                Continue with Google
+              </button>
+            </div>
           </div>
         </>
       )}
@@ -71,8 +85,9 @@ export const Registration = () => {
               <LineTablet />
             </div>
 
-            <Button
-              className={s.auth}
+            <button
+              onClick={login}
+              className={s.btn}
               style={{
                 backgroundColor: "transparent",
                 border: "2px solid  #F6F244",
@@ -80,7 +95,7 @@ export const Registration = () => {
             >
               <Google className={s.google} />
               Continue with Google
-            </Button>
+            </button>
           </div>
         </div>
       )}
@@ -98,8 +113,9 @@ export const Registration = () => {
                 <LineDesktop />
               </div>
 
-              <Button
-                className={s.auth}
+              <button
+                onClick={login}
+                className={s.btn}
                 style={{
                   backgroundColor: "transparent",
                   border: "2px solid  #F6F244",
@@ -110,7 +126,7 @@ export const Registration = () => {
               >
                 <Google className={s.google} />
                 Continue with Google
-              </Button>
+              </button>
             </div>
           </div>
         </>
