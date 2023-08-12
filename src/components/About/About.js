@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { PageFormatContext, format } from "../../context/PageFormatContext";
-import { ReactComponent as LogoTablet } from "../../images/icons/LogoTablet.svg";
-import { ReactComponent as LogoDesktop } from "../../images/icons/LogoDesktopForRegistration.svg";
+import { PageFormatContext, format } from "context/PageFormatContext";
+import { ReactComponent as LogoTablet } from "images/icons/LogoTablet.svg";
+import { ReactComponent as LogoDesktop } from "images/icons/LogoDesktopForRegistration.svg";
 import s from "./About.module.scss";
 
 export const About = () => {

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { ReactComponent as YellowDot } from "../../images/icons/YellowDot.svg";
-import { ReactComponent as EmptyDot } from "../../images/icons/EmptyDot.svg";
+import { ReactComponent as YellowDot } from "images/icons/YellowDot.svg";
+import { ReactComponent as EmptyDot } from "images/icons/EmptyDot.svg";
 import s from "./Dots.module.scss";
 
 export const DotsButton = () => {
