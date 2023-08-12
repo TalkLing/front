@@ -4,8 +4,7 @@ import { PageFormatContext, format } from "context/PageFormatContext";
 import { ReactComponent as ErrorMobile } from "images/icons/ErrorMobile.svg";
 import { ReactComponent as ErrorTablet } from "images/icons/ErrorTablet.svg";
 import { ReactComponent as ErrorDesktop } from "images/icons/ErrorDesktop.svg";
-import { Header } from "components/Header/Header";
-import { SideBar } from "components/SideBar/SideBar";
+import { Header, SideBar } from "components";
 import s from "./ErrorPage.module.scss";
 
 export const ErrorPage = () => {

@@ -1,8 +1,7 @@
 import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Header } from "components/Header/Header";
-import { SideBar } from "components/SideBar/SideBar";
+import { Header, SideBar, Message } from "components";
 import { setLogout } from "redux/auth/slice";
 import { authSelectors } from "redux/auth";
 import { Context } from "index";
@@ -26,7 +25,7 @@ export const Chat = (params) => {
       <SideBar />
       <div className={s.container}>
         {" "}
-        Chat
+        <Message />
         <div>
           <button onClick={LogOut}>Вийти</button>
         </div>

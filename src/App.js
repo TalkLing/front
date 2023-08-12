@@ -3,15 +3,17 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { PageFormatContext, format } from "./context/PageFormatContext";
-import { Registration } from "./pages/Registration/Registration";
-import { Login } from "pages/Login/Login";
-import { Chat } from "pages/Chat/Chat";
-import { WelcomeTo } from "pages/WelcomeTo/WelcomeTo";
-import { Connect } from "pages/Connect/Connect";
-import { Auth } from "pages/Auth/Auth";
-import { ErrorPage } from "pages/ErrorPage/ErrorPage";
-import { SendRequest } from "pages/SendRequest/SendRequest";
-import { ConfirmPassword } from "pages/ConfirmPassword/ConfirmPassword";
+import {
+  Registration,
+  Login,
+  Chat,
+  WelcomeTo,
+  Connect,
+  Auth,
+  ErrorPage,
+  SendRequest,
+  ConfirmPassword,
+} from "pages";
 import { themes } from "styles/themes";
 import { authSelectors } from "redux/auth";
 import { Context } from "./index";

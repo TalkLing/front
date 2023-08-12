@@ -8,14 +8,11 @@ import { PageFormatContext, format } from "context/PageFormatContext";
 import { ReactComponent as Logo } from "images/icons/LogoDesktopForSignUpPage.svg";
 import { ReactComponent as Line } from "images/icons/Line.svg";
 import { ReactComponent as Google } from "images/icons/Google.svg";
-import { Button } from "components/Button/Button";
-import { RegistrationForm } from "components/Form/RegistrationForm";
+import { Button, RegistrationForm, About, Links } from "components";
 import { Context } from "index";
 import { ReactComponent as LineTablet } from "images/icons/LineTablet.svg";
 import { ReactComponent as LineDesktop } from "images/icons/LineDesktop.svg";
 import { authSelectors } from "redux/auth";
-import { About } from "components/About/About";
-import { Links } from "components/Links/Links";
 import s from "./Registration.module.scss";
 
 export const Registration = () => {

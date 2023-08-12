@@ -1,0 +1,9 @@
+export { Auth } from "./Auth/Auth";
+export { Chat } from "./Chat/Chat";
+export { ConfirmPassword } from "./ConfirmPassword/ConfirmPassword";
+export { Connect } from "./Connect/Connect";
+export { ErrorPage } from "./ErrorPage/ErrorPage";
+export { Login } from "./Login/Login";
+export { Registration } from "./Registration/Registration";
+export { SendRequest } from "./SendRequest/SendRequest";
+export { WelcomeTo } from "./WelcomeTo/WelcomeTo";

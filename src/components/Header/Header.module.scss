@@ -1,6 +1,7 @@
 @import "../../styles/variables.scss";
 
 .header {
+  position: relative;
   height: 52px;
   background-color: $headerColor;
 
@@ -18,8 +19,8 @@
   margin-top: 2px;
 
   @media screen and (min-width: 1440px) {
-    margin-left: 67px;
-    padding-top: 4px;
-    margin-top: 0;
+    position: absolute;
+    left: 32px;
+    top: 20px;
   }
 }
