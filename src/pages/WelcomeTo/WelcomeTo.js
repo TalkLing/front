@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useRef } from "react";
 import { ReactComponent as ButtonAdd } from "images/icons/ButtonAdd.svg";
-import { DotsButton } from "components/Dots/Dots";
+import { DotsButton } from "components";
 import { PageFormatContext, format } from "context/PageFormatContext";
 import { ReactComponent as Logo } from "images/icons/Logo.svg";
 //import { ReactComponent as LogoDesktop } from "../../images/icons/LogoDesktopWithoutDots.svg";

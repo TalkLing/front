@@ -4,11 +4,10 @@ import { useContext } from "react";
 import { useSelector } from "react-redux";
 import { PageFormatContext, format } from "context/PageFormatContext";
 import { ReactComponent as Logo } from "images/icons/Logo.svg";
-import { LoginForm } from "components/Form/LoginForm";
 import { ReactComponent as LogoTablet } from "images/icons/LogoTablet.svg";
 import { ReactComponent as LogoDesktop } from "images/icons/LogoDesktopForRegistration.svg";
 import { authSelectors } from "redux/auth";
-import { Links } from "components/Links/Links";
+import { Links, LoginForm } from "components";
 import s from "./Login.module.scss";
 
 export const Login = () => {
