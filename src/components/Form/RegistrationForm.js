@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useContext, useEffect, useRef } from "react";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { authOperations } from "../../redux/auth";
+import { authOperations } from "redux/auth";
 import {
   validationRegistrationSchema,
   validate,

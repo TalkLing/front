@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { ReactComponent as Logo } from "../../images/icons/Logo.svg";
-import { ReactComponent as ButtonAdd } from "../../images/icons/ButtonAdd.svg";
-import { ReactComponent as Line } from "../../images/icons/Line.svg";
-import { Button } from "../../components/Button/Button";
-import { ReactComponent as YellowDot } from "../../images/icons/YellowDot.svg";
-import { ReactComponent as EmptyDot } from "../../images/icons/EmptyDot.svg";
+import { ReactComponent as Logo } from "images/icons/Logo.svg";
+import { ReactComponent as ButtonAdd } from "images/icons/ButtonAdd.svg";
+import { ReactComponent as Line } from "images/icons/Line.svg";
+import { Button } from "components/Button/Button";
+import { ReactComponent as YellowDot } from "images/icons/YellowDot.svg";
+import { ReactComponent as EmptyDot } from "images/icons/EmptyDot.svg";
 import s from "./Auth.module.scss";
 
 export const Auth = () => {
