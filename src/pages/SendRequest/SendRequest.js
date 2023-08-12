@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { PageFormatContext, format } from "../../context/PageFormatContext";
-import { ReactComponent as Logo } from "../../images/icons/Logo.svg";
-import { About } from "../../components/About/About";
-import { Links } from "../../components/Links/Links";
-import { Button } from "../../components/Button/Button";
+import { PageFormatContext, format } from "context/PageFormatContext";
+import { ReactComponent as Logo } from "images/icons/Logo.svg";
+import { About } from "components/About/About";
+import { Links } from "components/Links/Links";
+import { Button } from "components/Button/Button";
 import s from "./SendRequest.module.scss";
 
 export const SendRequest = () => {

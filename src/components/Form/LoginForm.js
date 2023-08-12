@@ -2,7 +2,7 @@ import { useEffect, useContext } from "react";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { authOperations } from "../../redux/auth";
+import { authOperations } from "redux/auth";
 import {
   validationLoginSchema,
   validateLogin,

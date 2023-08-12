@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PageFormatContext, format } from "../../context/PageFormatContext";
+import { PageFormatContext, format } from "context/PageFormatContext";
 import s from "./SideBar.module.scss";
 
 export const SideBar = () => {

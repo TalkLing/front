@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { PageFormatContext, format } from "../../context/PageFormatContext";
-import { ReactComponent as LogoHeaderTablet } from "../../images/icons/LogoHeaderTablet.svg";
-import { ReactComponent as LogoHeaderDesktop } from "../../images/icons/LogoHeaderDesktop.svg";
+import { PageFormatContext, format } from "context/PageFormatContext";
+import { ReactComponent as LogoHeaderTablet } from "images/icons/LogoHeaderTablet.svg";
+import { ReactComponent as LogoHeaderDesktop } from "images/icons/LogoHeaderDesktop.svg";
 import s from "./Header.module.scss";
 
 export const Header = ({ style }) => {
