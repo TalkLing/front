@@ -17,6 +17,7 @@ import {
 import { themes } from "styles/themes";
 import { authSelectors } from "redux/auth";
 import { Context } from "./index";
+import { Layot, Channels, AboutChannel, Settings, Members } from "components";
 import "./App.css";
 
 //axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
@@ -91,7 +92,12 @@ function App() {
             <Route path="/connect" element={<Connect />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/chat" element={<Chat />} />
+            <Route path="/chat" element={<Layot />}>
+              <Route path="about" element={<AboutChannel />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="members" element={<Members />} />
+            </Route>
+            <Route path="/channels" element={<Channels />} />
             <Route path="/sendRequest" element={<SendRequest />} />
             <Route path="/confirmPassword" element={<ConfirmPassword />} />
             {/*<Route path="/*" element={<ErrorPage />} />*/}
