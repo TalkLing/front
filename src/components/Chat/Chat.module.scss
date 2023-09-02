@@ -1,48 +1,6 @@
-@import "../../styles/variables.scss";
+// @import "../../../src/styles/variables.scss";
 
-.logo {
-  padding-bottom: 33px;
-
-  @media screen and (min-width: 835px) {
-    padding-top: 40px;
-    padding-bottom: 0px;
-    margin-bottom: 65px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 137px;
-    padding-top: 100px;
-  }
-}
-
-.logoItem {
-  display: block;
-  margin-left: 0;
-}
-
-.titleTablet {
-  margin-bottom: 40px;
-  text-align: left;
-  color: $primary;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0.24px;
-
-  @media screen and (min-width: 1440px) {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.17;
-    letter-spacing: 0.48px;
-  }
-}
-
-.aboutUs {
-  text-align: left;
-  color: $maimWhite;
-  font-size: 16px;
-  line-height: 1.88;
-  letter-spacing: 0.16px;
+.dd {
+  padding: 33px;
+  background-color: red;
 }
