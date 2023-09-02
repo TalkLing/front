@@ -24,8 +24,8 @@ export const Chat = (params) => {
       <Header />
       <SideBar />
       <div className={s.container}>
-        {" "}
         <Message />
+
         <div>
           <button onClick={LogOut}>Вийти</button>
         </div>

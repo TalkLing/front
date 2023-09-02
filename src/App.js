@@ -10,7 +10,6 @@ import {
   WelcomeTo,
   Connect,
   Auth,
-  ErrorPage,
   SendRequest,
   ConfirmPassword,
 } from "pages";
@@ -18,6 +17,7 @@ import { themes } from "styles/themes";
 import { authSelectors } from "redux/auth";
 import { Context } from "./index";
 import "./App.css";
+import { PrivateRoute, RestrictedRoute } from "components/Routes/PrivateRoute";
 
 //axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
@@ -81,38 +81,42 @@ function App() {
   return (
     <div className="App">
       <PageFormatContext.Provider value={pageFormat}>
-        {userAuth === true || user ? (
-          <Routes>
-            <Route
-              path="/registration"
-              element={shouldRedirect && <Navigate replace to="/chat" />}
-            />
-            <Route exact path="/" element={<WelcomeTo />} />
-            <Route path="/connect" element={<Connect />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/sendRequest" element={<SendRequest />} />
-            <Route path="/confirmPassword" element={<ConfirmPassword />} />
-            {/*<Route path="/*" element={<ErrorPage />} />*/}
-          </Routes>
-        ) : (
-          <Routes>
-            <Route path="/registration" element={<Registration />} />
-            <Route exact path="/" element={<WelcomeTo />} />
-            <Route path="/connect" element={<Connect />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/sendRequest" element={<SendRequest />} />
-            <Route path="/confirmPassword" element={<ConfirmPassword />} />
-            <Route
-              path="/chat"
-              element={
-                shouldRedirect && <Navigate replace to="/registration" />
-              }
-            />
-          </Routes>
-        )}
+        <Routes>
+          <Route
+            path="/registration"
+            element={<RestrictedRoute component={<Registration />} />}
+          />
+          <Route
+            path="/login"
+            element={<RestrictedRoute component={<Login />} />}
+          />
+          <Route
+            path="/auth"
+            element={<RestrictedRoute component={<Auth />} />}
+          />
+          <Route
+            path="/sendRequest"
+            element={<RestrictedRoute component={<SendRequest />} />}
+          />
+          <Route
+            path="/confirmPassword"
+            element={<RestrictedRoute component={<ConfirmPassword />} />}
+          />
+          <Route
+            path="/connect"
+            element={<RestrictedRoute component={<Connect />} />}
+          />
+
+          <Route path="/chat" element={<PrivateRoute component={<Chat />} />} />
+
+          <Route exact path="/" element={<WelcomeTo />} />
+
+          {/* <Route path="admin" element={<AdminMenu />}>
+            <Route index element={<AdminAccountPage />} />
+            <Route path="reviews" element={<ReviewPage />} />
+            <Route path="transactions" element={<TransactionPage />} />
+          </Route> */}
+        </Routes>
       </PageFormatContext.Provider>
     </div>
   );
