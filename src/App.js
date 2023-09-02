@@ -1,7 +1,5 @@
-import { useState, useEffect, useRef, useContext } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useState, useEffect, useRef } from "react";
+import { Routes, Route } from "react-router-dom";
 import { PageFormatContext, format } from "./context/PageFormatContext";
 import {
   Registration,
@@ -12,25 +10,19 @@ import {
   Auth,
   SendRequest,
   ConfirmPassword,
+  ErrorPage,
 } from "pages";
 import { themes } from "styles/themes";
-import { authSelectors } from "redux/auth";
-import { Context } from "./index";
 import "./App.css";
 import { PrivateRoute, RestrictedRoute } from "components/Routes/PrivateRoute";
+import { SharedLayout } from "components/SharedLayout/SharedLayout";
 
 //axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
   const [pageFormat, setPageFormat] = useState(null);
   const { mobile, tablet, desktop } = themes.breakPoints;
-  const dispatch = useDispatch();
   const firstLoading = useRef(true);
-  const isLoadingUser = useSelector(authSelectors.getLoadingUser);
-  const userAuth = useSelector(authSelectors.getIsLoggedIn);
-  const { auth } = useContext(Context);
-  const [user, loading] = useAuthState(auth);
-  const shouldRedirect = true;
 
   useEffect(() => {
     if (firstLoading.current) {
@@ -107,15 +99,18 @@ function App() {
             element={<RestrictedRoute component={<Connect />} />}
           />
 
-          <Route path="/chat" element={<PrivateRoute component={<Chat />} />} />
-
           <Route exact path="/" element={<WelcomeTo />} />
 
-          {/* <Route path="admin" element={<AdminMenu />}>
-            <Route index element={<AdminAccountPage />} />
-            <Route path="reviews" element={<ReviewPage />} />
-            <Route path="transactions" element={<TransactionPage />} />
-          </Route> */}
+          <Route
+            path="/chat"
+            element={<PrivateRoute component={<SharedLayout />} />}
+          >
+            <Route index element={<Chat />} />
+          </Route>
+
+          <Route path="/" element={<SharedLayout />}>
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
         </Routes>
       </PageFormatContext.Provider>
     </div>
