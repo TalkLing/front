@@ -20,7 +20,7 @@ export const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    user === true && navigate("/chat");
+    user === true && navigate("/chat"); // can delete this
     console.log("user", user);
   });
 
