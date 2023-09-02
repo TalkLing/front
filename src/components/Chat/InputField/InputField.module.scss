@@ -1,0 +1,145 @@
+@import "../../../styles/variables.scss";
+
+.formcontainer {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 0 20px;
+
+  > .iconsList {
+    display: none;
+    @media screen and (min-width: 835px) {
+      display: flex;
+    }
+  }
+
+  @media screen and (min-width: 835px) {
+    max-width: 550px;
+    padding: 18px 10px;
+    border-radius: 8px;
+    border: 0.5px solid #8b8e8f;
+    background: #fff;
+  }
+  @media screen and (min-width: 1440px) {
+    max-width: 700px;
+    padding: 18px 20px;
+    border-radius: 8px;
+    border: 0.5px solid #8b8e8f;
+    background: #fff;
+  }
+}
+
+.input {
+  padding: 6px 14px;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  width: 100%;
+  background: #acd6f0;
+
+  font-family: $segoe;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.12px;
+  padding: 6px 10px;
+
+  @media screen and (min-width: 835px) {
+    padding: 6px 20px;
+    background: #dadde2;
+
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 6px 10px;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+
+  > .iconsList {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+
+    @media screen and (min-width: 835px) {
+      display: none;
+      width: 280px;
+    }
+  }
+}
+
+.iconsList {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  li {
+    width: 20px;
+    height: 20px;
+  }
+  :first-child {
+    background-image: url(../../../images/icons/Clip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  :nth-child(2) {
+    background-image: url(../../../images/icons/Face.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  :last-child {
+    background-image: url(../../../images/icons/Audio.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+.visible {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+.fadeInOut {
+  opacity: 0;
+}
+
+.sendButon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: $primary;
+
+  padding: 4px;
+  border-radius: 50%;
+
+  @media screen and (min-width: 1440px) {
+    padding: 4px 8px;
+    border-radius: 12px;
+  }
+}
+
+.sendButonText {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: $segoe;
+
+  display: none;
+  @media screen and (min-width: 1440px) {
+    display: block;
+  }
+}
+
+.sendIcon {
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../images/icons/Send.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

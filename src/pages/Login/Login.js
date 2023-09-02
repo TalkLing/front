@@ -20,13 +20,8 @@ export const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    (isTablet || isDesktop) && user === true && navigate("/chat");
-    //console.log("user", user);
-  });
-
-  useEffect(() => {
-    isMobile && user === true && navigate("/channels");
-    //console.log("user", user);
+    user === true && navigate("/chat"); // can delete this
+    console.log("user", user);
   });
 
   return (
