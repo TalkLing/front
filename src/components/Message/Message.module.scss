@@ -1,0 +1,199 @@
+@import "styles/variables.scss";
+
+.message {
+  padding: 20px;
+}
+.avatarContainer {
+  width: 100%;
+}
+.myAvatar {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  align-items: flex-end;
+}
+
+.NotMyAvatar {
+  @extend .myAvatar;
+  align-items: flex-start;
+}
+
+.about {
+  display: flex;
+  padding-bottom: 13px;
+}
+
+.image {
+  display: block;
+  width: 48px;
+  border-radius: 50%;
+}
+.data {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  padding-left: 5px;
+}
+
+.name {
+  margin-left: 8px;
+  color: $mainBlack;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  letter-spacing: 0.14px;
+
+  @media screen and (min-width: 835px) {
+    margin-left: 16px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.date {
+  align-self: flex-end;
+  color: $grey;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.66;
+  letter-spacing: 0.12px;
+
+  @media screen and (min-width: 835px) {
+    font-size: 16px;
+  }
+}
+.notMyContent {
+  max-width: 239px;
+  padding: 8px 4px;
+  text-align: initial;
+  color: $mainBlack;
+  background-color: $formBackground;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.14px;
+  border-radius: 0px 12px 12px 12px;
+
+  @media screen and (min-width: 835px) {
+    font-size: 16px;
+    line-height: 1.25;
+    max-width: 393px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 547px;
+  }
+}
+.myContent {
+  @extend .notMyContent;
+  margin-left: auto;
+  border-radius: 12px 0px 12px 12px;
+  background-color: $youMessageBackground;
+  color: $maimWhite;
+}
+.typingMessage {
+  @extend .notMyContent;
+  padding: 2px 4px;
+  max-width: fit-content;
+  background-color: $grey;
+
+  @media screen and (min-width: 835px) {
+    padding: 6px 14px 6px 0px;
+  }
+}
+
+.typingBlock {
+  display: flex;
+  padding-left: 8px;
+
+  @media screen and (min-width: 835px) {
+    padding-left: 22px;
+  }
+}
+.typingText {
+  align-self: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 3px;
+  color: $maimWhite;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.66;
+  letter-spacing: 0.12px;
+
+  @media screen and (min-width: 835px) {
+    // color: $mainBlack;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0.16px;
+  }
+}
+.divinderBlock {
+  position: relative;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 27px;
+
+  @media screen and (min-width: 835px) {
+    padding-bottom: 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-bottom: 40px;
+  }
+}
+.divinder {
+  margin: 0 auto;
+  //width: 57px;
+  border-radius: 4px;
+  padding: 2px 8px;
+  background-color: $borderBottom;
+  color: $errorBackground;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.66;
+  letter-spacing: 0.12px;
+
+  @media screen and (min-width: 835px) {
+    font-size: 16px;
+    line-height: 1.25;
+    border-radius: 8px;
+  }
+
+  &:before {
+    position: absolute;
+    display: block;
+    content: "";
+    background-color: $borderBottom;
+    height: 1px;
+    width: 37%;
+    left: 0;
+    top: 12px;
+
+    @media screen and (min-width: 835px) {
+      width: 42%;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 45%;
+    }
+  }
+
+  &:after {
+    position: absolute;
+    display: block;
+    content: "";
+    background-color: $borderBottom;
+    height: 1px;
+    width: 37%;
+    right: 0;
+    top: 12px;
+
+    @media screen and (min-width: 835px) {
+      width: 42%;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 45%;
+    }
+  }
+}

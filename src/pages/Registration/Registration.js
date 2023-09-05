@@ -27,14 +27,19 @@ export const Registration = () => {
   const [user, loading] = useAuthState(auth);
 
   useEffect(() => {
-    (userAuth === true || user) && navigate("/chat");
-    console.log("user registered", user);
+    (isDesktop || isTablet) && (userAuth === true || user) && navigate("/chat");
+    // console.log("user registered", user);
+  });
+
+  useEffect(() => {
+    isMobile && (userAuth === true || user) && navigate("/channels");
+    // console.log("user registered", user);
   });
 
   const login = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     const { user } = await auth.signInWithPopup(provider);
-    console.log("user", user);
+    // console.log("user", user);
   };
 
   return (

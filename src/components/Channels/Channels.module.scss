@@ -1,0 +1,26 @@
+@import "styles/variables.scss";
+
+.container {
+  width: 100%;
+  background-color: $channelBackground;
+  height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: 835px) {
+    // margin-left: 80px;
+    width: 151px;
+
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 95px;
+  }
+}
+.subheader {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-bottom: 20px;
+}

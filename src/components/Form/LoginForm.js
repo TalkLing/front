@@ -6,8 +6,8 @@ import { authOperations } from "redux/auth";
 import {
   validationLoginSchema,
   validateLogin,
-} from "../../helpers/Validation/ValidationLogin";
-import { PageFormatContext, format } from "../../context/PageFormatContext";
+} from "helpers/Validation/ValidationLogin";
+import { PageFormatContext, format } from "context/PageFormatContext";
 import s from "./LoginForm.module.scss";
 
 export const LoginForm = () => {

@@ -56,4 +56,46 @@ const signIn = createAsyncThunk("auth/logIn", async (credentials, thunkAPI) => {
   }
 });
 
-export { signUp, signIn /*signOut, getUser*/ };
+const sendRequest = createAsyncThunk(
+  "auth/sendRequest",
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post(
+        "https://lang.talkling.online/email-send",
+        credentials
+      );
+
+      //token.set(res.data.token);
+
+      //localStorage.setItem("token", res.data.token);
+      //localStorage.setItem("email", res.data.user.email);
+      console.log(res.data);
+      alert("Your request has been sent");
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+const updatePassword = createAsyncThunk(
+  "auth/updatePassword",
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post(
+        "https://lang.talkling.online/update-password",
+        credentials
+      );
+
+      token.set(res.data.token);
+      localStorage.setItem("token", res.data.token);
+      console.log(res.data);
+      alert("Your password will be updated");
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export { signUp, signIn, sendRequest, updatePassword /*signOut, getUser*/ };
