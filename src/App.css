@@ -153,3 +153,6 @@ a {
     transform: rotate(360deg);
   }
 }
+input {
+  background-color: #fff;
+}
