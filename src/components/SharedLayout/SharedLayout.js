@@ -12,25 +12,14 @@ export const SharedLayout = (params) => {
   const dispatch = useDispatch();
   const { auth } = useContext(Context);
 
-  const LogOut = () => {
-    auth.signOut();
-    dispatch(setLogout(false));
-    navigate("/registration");
-    localStorage.removeItem("token");
-  };
-
   return (
     <div>
       <Header />
       <SideBar />
-      <div className={s.container}>
-        <div>
-          <button onClick={LogOut}>Вийти</button>
-        </div>
-
+      {/*<div className={s.container}>
         <Link to={"/"}>Link</Link>
         <Outlet />
-      </div>
+      </div>*/}
     </div>
   );
 };

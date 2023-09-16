@@ -33,11 +33,11 @@
 }
 
 body {
-  height: auto;
+  height: 100vh;
   font-family: "Segoe UI", sans-serif;
   overflow-x: hidden;
+
   background-repeat: no-repeat;
-  background-size: cover;
   background: linear-gradient(
     142deg,
     rgba(43, 37, 37, 1) 6%,
@@ -152,7 +152,4 @@ a {
   to {
     transform: rotate(360deg);
   }
-}
-input {
-  background-color: #fff;
 }

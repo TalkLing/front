@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getSignupError } from "../../helpers/TextError";
+import { getSignupError } from "helpers/TextError";
 
 //axios.defaults.baseURL = "http://talkling.us-east-1.elasticbeanstalk.com";
 
@@ -52,6 +52,7 @@ const signIn = createAsyncThunk("auth/logIn", async (credentials, thunkAPI) => {
     alert("You are welcome");
     return res.data;
   } catch (error) {
+    alert("Invalid email or password");
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -98,4 +99,10 @@ const updatePassword = createAsyncThunk(
   }
 );
 
-export { signUp, signIn, sendRequest, updatePassword /*signOut, getUser*/ };
+export {
+  signUp,
+  signIn,
+  sendRequest,
+  updatePassword,
+  /*signOut, getUser*/
+};

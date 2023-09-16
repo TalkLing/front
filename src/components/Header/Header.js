@@ -21,7 +21,7 @@ export const Header = ({ style }) => {
   const LogOut = () => {
     auth.signOut();
     dispatch(setLogout(false));
-    navigate("/registration");
+    isMobile ? navigate("/auth") : navigate("/registration");
     localStorage.removeItem("token");
   };
 

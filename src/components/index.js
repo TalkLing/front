@@ -19,3 +19,6 @@ export { Navbar } from "./Navigation/Navigation";
 export { Menu } from "./Menu/Menu";
 export { Settings } from "./ModalWindow/Settings/Settings";
 export { AboutChannel } from "./ModalWindow/AboutChannel/AboutChannel";
+export { PrivateRoute, RestrictedRoute } from "./Routes/PrivateRoute";
+export { SharedLayout } from "./SharedLayout/SharedLayout";
+export { InputField } from "./Chat/InputField/InputField";
