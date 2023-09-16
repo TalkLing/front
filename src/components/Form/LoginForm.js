@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { authOperations } from "redux/auth";
 import {
   validationLoginSchema,
-  validateLogin,
+  validate,
 } from "helpers/Validation/ValidationLogin";
 import { PageFormatContext, format } from "context/PageFormatContext";
 import s from "./LoginForm.module.scss";
@@ -27,7 +27,7 @@ export const LoginForm = () => {
       password: "",
     },
     validationSchema: validationLoginSchema,
-    validateLogin,
+    validate,
     onSubmit: (values, obj) => {
       const { email: e, password } = values;
       const email = e.toLowerCase();
@@ -59,7 +59,7 @@ export const LoginForm = () => {
             className={s.input}
             id="email"
             name="email"
-            type="text"
+            type="email"
             min={8}
             max={40}
             onChange={formik.handleChange}
@@ -113,7 +113,7 @@ export const LoginForm = () => {
       <button
         className={s.btn}
         type="submit"
-        // disabled={!formik.isValid}
+        disabled={!formik.isValid}
         style={{
           width: isDesktop && "414px",
           fontSize: isDesktop && "20px",

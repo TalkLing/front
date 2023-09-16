@@ -20,12 +20,15 @@
     margin-bottom: 20px;
   }
 }
+
 .input {
   width: 250px;
   border: none;
   outline: none;
   background-repeat: no-repeat;
   background-color: #fff;
+  -webkit-box-shadow: inset 0 0 0 50px #fff;
+  -webkit-text-fill-color: #000;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.43;
@@ -42,6 +45,7 @@
     font-weight: 400;
     line-height: 1.43;
     letter-spacing: 0.14px;
+    font-family: "Segoe UI", sans-serif;
   }
 
   @media screen and (min-width: 1440px) {
@@ -94,7 +98,7 @@
 .mistake {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
   margin-left: 15.5px;
   margin-right: 15.5px;
   font-size: 14px;
@@ -110,12 +114,16 @@
 .checkbox {
   display: flex;
   align-items: center;
+  flex-direction: column;
   margin-bottom: 28px;
 
   @media screen and (min-width: 1440px) {
     margin-bottom: 40px;
     align-self: flex-start;
   }
+}
+.checkboxContainer {
+  margin-right: auto;
 }
 .customChecbox {
   position: absolute;
@@ -146,6 +154,7 @@
   line-height: 1.43;
   letter-spacing: 0.14px;
   color: $mainBlack;
+  font-family: "Segoe UI", sans-serif;
 
   @media screen and (min-width: 835px) {
     color: $grey;

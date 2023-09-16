@@ -13,10 +13,13 @@ import {
   ErrorPage,
 } from "pages";
 import { themes } from "styles/themes";
+import {
+  PrivateRoute,
+  RestrictedRoute,
+  SharedLayout,
+  Channels,
+} from "components";
 import "./App.css";
-import { PrivateRoute, RestrictedRoute } from "components/Routes/PrivateRoute";
-import { SharedLayout } from "components/SharedLayout/SharedLayout";
-
 //axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
@@ -74,39 +77,18 @@ function App() {
     <div className="App">
       <PageFormatContext.Provider value={pageFormat}>
         <Routes>
-          <Route
-            path="/registration"
-            element={<RestrictedRoute component={<Registration />} />}
-          />
-          <Route
-            path="/login"
-            element={<RestrictedRoute component={<Login />} />}
-          />
-          <Route
-            path="/auth"
-            element={<RestrictedRoute component={<Auth />} />}
-          />
-          <Route
-            path="/sendRequest"
-            element={<RestrictedRoute component={<SendRequest />} />}
-          />
-          <Route
-            path="/confirmPassword"
-            element={<RestrictedRoute component={<ConfirmPassword />} />}
-          />
-          <Route
-            path="/connect"
-            element={<RestrictedRoute component={<Connect />} />}
-          />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/sendRequest" element={<SendRequest />} />
+          <Route path="/confirmPassword" element={<ConfirmPassword />} />
+          <Route path="/connect" element={<Connect />} />
 
           <Route exact path="/" element={<WelcomeTo />} />
 
-          <Route
-            path="/chat"
-            element={<PrivateRoute component={<SharedLayout />} />}
-          >
-            <Route index element={<Chat />} />
-          </Route>
+          <Route path="/chat" element={<Chat />} />
+
+          <Route path="/channels" element={<Channels />} />
 
           <Route path="/" element={<SharedLayout />}>
             <Route path="*" element={<ErrorPage />} />

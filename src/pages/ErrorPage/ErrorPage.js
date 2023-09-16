@@ -16,7 +16,6 @@ export const ErrorPage = () => {
 
   return (
     <div className={s.background}>
-      <Header />
       <div className={s.content}>
         <SideBar />
         <div className={s.container}>

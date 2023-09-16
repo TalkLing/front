@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
 .container {
-  padding: 0px 24px 42px 31px;
+  padding: 0px 24px 42px 24px;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -26,7 +26,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+.registration {
+  margin: 0 auto;
+}
 .google {
   display: flex;
   margin-right: 10px;

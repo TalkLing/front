@@ -27,13 +27,15 @@ export const Registration = () => {
   const [user, loading] = useAuthState(auth);
 
   useEffect(() => {
-    (isDesktop || isTablet) && (userAuth === true || user) && navigate("/chat");
-    // console.log("user registered", user);
+    (isDesktop || isTablet) &&
+      /*userAuth === true ||*/ user &&
+      navigate("/chat");
+    console.log("user registered", user);
   });
 
   useEffect(() => {
-    isMobile && (userAuth === true || user) && navigate("/channels");
-    // console.log("user registered", user);
+    isMobile && /*userAuth === true || */ user && navigate("/channels");
+    console.log("user registered", user);
   });
 
   const login = async () => {
@@ -50,25 +52,27 @@ export const Registration = () => {
           <div className={s.logo}>
             <Logo style={{ width: "72px", height: "90px" }} />
           </div>
-          <RegistrationForm />
-          <div className={s.auth}>
-            <div className={s.textLine}>
-              <Line />
-              <p className={s.text}>or</p>
-              <Line />
-            </div>
+          <div className={s.registration}>
+            <RegistrationForm />
             <div className={s.auth}>
-              <button
-                onClick={login}
-                className={s.btn}
-                style={{
-                  backgroundColor: "transparent",
-                  border: "2px solid  #F6F244",
-                }}
-              >
-                <Google className={s.google} />
-                Continue with Google
-              </button>
+              <div className={s.textLine}>
+                <Line />
+                <p className={s.text}>or</p>
+                <Line />
+              </div>
+              <div className={s.auth}>
+                <button
+                  onClick={login}
+                  className={s.btn}
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "2px solid  #F6F244",
+                  }}
+                >
+                  <Google className={s.google} />
+                  Continue with Google
+                </button>
+              </div>
             </div>
           </div>
         </>

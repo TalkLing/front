@@ -1,13 +1,15 @@
-// import s from "./Chat.module.scss";
-import { Message } from "components";
-import { InputField } from "components/Chat/InputField/InputField";
+import { Message, InputField, SharedLayout } from "components";
+import s from "./Chat.module.scss";
 
 export const Chat = () => {
   return (
-    <div>
-      <Message />
+    <>
+      <SharedLayout />
+      <div className={s.container}>
+        <Message />
 
-      <InputField />
-    </div>
+        <InputField />
+      </div>
+    </>
   );
 };

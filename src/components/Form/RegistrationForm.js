@@ -3,6 +3,7 @@ import { useContext, useEffect, useRef } from "react";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { authOperations } from "redux/auth";
+import { Button } from "components/Button/Button";
 import {
   validationRegistrationSchema,
   validate,
@@ -93,7 +94,7 @@ export const RegistrationForm = () => {
             className={s.input}
             id="email"
             name="email"
-            type="text"
+            type="email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email.trim()}
@@ -125,7 +126,7 @@ export const RegistrationForm = () => {
             name="password"
             type="password"
             minLength={8}
-            maxLength={40}
+            maxLength={30}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password.trim()}
@@ -161,7 +162,7 @@ export const RegistrationForm = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.confirmPassword.trim()}
-            placeholder="Confirm"
+            placeholder="Confirm password"
           />
         </div>{" "}
         {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
@@ -170,25 +171,29 @@ export const RegistrationForm = () => {
       </div>
 
       <div className={s.checkbox}>
-        <input
-          type="checkbox"
-          id="termsOfService"
-          className={s.customChecbox}
-          name="termsOfService"
-          onChange={formik.handleChange}
-          value={formik.values.termsOfService}
-        />
-        <label htmlFor="termsOfService" className={s.checkLabel}>
-          I agree to the terms of service
-        </label>
-        {formik.touched.termsOfService && formik.errors.termsOfService ? (
-          <span className={s.mistake}>{formik.errors.termsOfService}</span>
-        ) : (
-          " "
-        )}
+        <div className={s.checkboxContainer}>
+          <input
+            type="checkbox"
+            id="termsOfService"
+            className={s.customChecbox}
+            name="termsOfService"
+            onChange={formik.handleChange}
+            value={formik.values.termsOfService}
+          />
+          <label htmlFor="termsOfService" className={s.checkLabel}>
+            I agree to the terms of service
+          </label>
+        </div>
+        <div className={s.mistakeContainer}>
+          {formik.touched.termsOfService && formik.errors.termsOfService ? (
+            <span className={s.mistake}>{formik.errors.termsOfService}</span>
+          ) : (
+            " "
+          )}
+        </div>
       </div>
 
-      <button
+      <Button
         className={s.btn}
         type="submit"
         disabled={!formik.isValid}
@@ -196,10 +201,11 @@ export const RegistrationForm = () => {
           width: isDesktop && "414px",
           fontSize: isDesktop && "20px",
           height: isDesktop && "56px",
+          backgroundColor: "#f6f244",
         }}
       >
         Create Account
-      </button>
+      </Button>
     </form>
   );
 };

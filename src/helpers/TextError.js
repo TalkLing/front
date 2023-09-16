@@ -5,4 +5,5 @@ const signupErrorMessages = {
 
 const getTextError = (errors) => (status) =>
   errors[status] || "Щось пішло не так, спробуйте повторити пізніше :)";
+
 export const getSignupError = getTextError(signupErrorMessages);
