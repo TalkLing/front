@@ -60,8 +60,8 @@ export const LoginForm = () => {
             id="email"
             name="email"
             type="email"
-            min={8}
-            max={40}
+            minLength={8}
+            maxLength={40}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email.trim()}

@@ -19,6 +19,7 @@
   padding-bottom: 13px;
 }
 .text {
+  padding-bottom: 5px;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.43;
@@ -34,18 +35,6 @@
 .button {
   display: flex;
   align-items: center;
-
-  &::after {
-    display: block;
-    position: absolute;
-    margin-top: 110px;
-    left: 50%;
-    content: "";
-    width: 72px;
-    height: 2px;
-    margin-left: -30px;
-    background-color: $mainBlack;
-  }
 }
 .dots {
   display: flex;

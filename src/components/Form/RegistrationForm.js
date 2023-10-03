@@ -67,7 +67,7 @@ export const RegistrationForm = () => {
             maxLength={50}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.username}
+            value={formik.values.username.trim()}
             placeholder="Username"
           />
         </div>
@@ -95,6 +95,8 @@ export const RegistrationForm = () => {
             id="email"
             name="email"
             type="email"
+            minLength={8}
+            maxLength={40}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email.trim()}
