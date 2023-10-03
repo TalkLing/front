@@ -66,18 +66,6 @@
 .button {
   display: flex;
   align-items: center;
-
-  &::after {
-    display: block;
-    position: absolute;
-    margin-top: 106px;
-    left: 50%;
-    content: "";
-    width: 72px;
-    height: 2px;
-    margin-left: -30px;
-    background-color: $mainBlack;
-  }
 }
 .form {
   display: flex;

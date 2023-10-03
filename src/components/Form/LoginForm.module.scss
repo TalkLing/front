@@ -171,21 +171,4 @@
   font-weight: 700;
   line-height: 20px;
   letter-spacing: 0.16px;
-
-  &::after {
-    display: block;
-    position: absolute;
-    margin-top: 180px;
-    margin-left: -30px;
-    left: 50%;
-    content: "";
-    width: 72px;
-    height: 2px;
-    background-color: $mainBlack;
-
-    @media screen and (min-width: 835px) {
-      width: 0px;
-      height: 0px;
-    }
-  }
 }
